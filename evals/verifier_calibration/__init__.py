@@ -94,7 +94,7 @@ def predict(trace: dict[str, Any], *, row_id: str, label_role: str) -> dict[str,
     distribution, never carried alongside it, so the two cannot drift.
     """
     features = extract_features(trace)
-    logit = WEIGHTS["bias"] + sum(WEIGHTS[name] * value for name, value in features.items())
+    logit = WEIGHTS["bias"] + math.fsum(WEIGHTS[name] * value for name, value in features.items())
     p_success = 1.0 / (1.0 + math.exp(-logit))
     # Round once, then derive the complement from the rounded value, so the
     # distribution sums to exactly one rather than to 0.9999.
@@ -275,6 +275,12 @@ def _weak_rows(tasks: list[dict[str, Any]], limit: int = 20) -> list[dict[str, A
 
 # ---------------------------------------------------------------------------
 # Metrics
+#
+# Float accumulation goes through `math.fsum`, never the builtin `sum`. CPython
+# 3.12 gave `sum` compensated summation, so the same rows produce a
+# last-ulp-different mean on 3.10 and 3.12 — enough to flip a 4dp round and make
+# the committed report unreproducible on half the CI matrix. `fsum` is exact on
+# every version.
 # ---------------------------------------------------------------------------
 
 
@@ -290,7 +296,7 @@ def brier_score(rows: list[dict[str, Any]]) -> float:
     """Mean squared error of the predicted success probability."""
     if not rows:
         return 0.0
-    total = sum((_p_success(row) - (1.0 if _is_success(row) else 0.0)) ** 2 for row in rows)
+    total = math.fsum((_p_success(row) - (1.0 if _is_success(row) else 0.0)) ** 2 for row in rows)
     return round(total / len(rows), 4)
 
 
@@ -316,7 +322,7 @@ def reliability_buckets(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if not in_band:
             buckets.append({"band": f"{low:.1f}-{high:.1f}", "count": 0})
             continue
-        mean_p = sum(_p_success(row) for row in in_band) / len(in_band)
+        mean_p = math.fsum(_p_success(row) for row in in_band) / len(in_band)
         observed = sum(1 for row in in_band if _is_success(row)) / len(in_band)
         buckets.append(
             {
