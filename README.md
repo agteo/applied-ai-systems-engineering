@@ -338,7 +338,7 @@ examples/
     run_agent.py
 
 evals/
-  strongbench_benchmark/       # Level 2 tasks, schema, graders, calibration, threshold
+  strongbench_benchmark/       # Level 2 tasks, schema, graders, judge agreement, threshold
   operations/                  # Level 3 failure bundle and regression pack
   runner.py                    # benchmark runner
   report.py                    # deterministic Markdown report writer

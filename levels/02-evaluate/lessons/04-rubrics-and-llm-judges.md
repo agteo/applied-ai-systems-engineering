@@ -86,21 +86,21 @@ Order your graders this way round: hard checks first, and let them veto.
 a model, so the benchmark runs offline, free, and identically on every machine.
 That is a course design decision, not a claim that rules are as good as a model.
 When you swap in a real judge, everything else in this lesson stays the same —
-the rubric, the calibration file, the agreement metric — and only
+the rubric, the agreement file, the agreement metric — and only
 `grade_quality` changes. That is the point of keeping the rubric out of the code.
 
-## Calibration, And Why This Repo's Is Not Enough
+## Judge Agreement, And Why This Repo's Is Not Enough
 
-Calibration means: label a sample by hand, have the judge label the same sample,
+Judge agreement means: label a sample by hand, have the judge label the same sample,
 and measure agreement. The file is
-[`evals/strongbench_benchmark/calibration/human_reviewed.jsonl`](../../../evals/strongbench_benchmark/calibration/human_reviewed.jsonl):
+[`evals/strongbench_benchmark/judge_agreement/human_reviewed.jsonl`](../../../evals/strongbench_benchmark/judge_agreement/human_reviewed.jsonl):
 
 ```json
 {"task_id":"bench-021","human_label":"high","rubric_label":"high",
  "reviewer_note":"Correct total, tool-grounded calculation, and relevant citations."}
 ```
 
-`calibration_agreement()` divides matches by rows, and the benchmark report
+`judge_agreement()` divides matches by rows, and the benchmark report
 prints the result:
 
 ```text
@@ -121,7 +121,7 @@ say why.** Look at the actual sample:
 
 The third row is the real problem. The rubric's `Low` band is defined by
 fabricated policy basis and skipped approvals — the failures that matter. No
-example in the calibration set exercises that band. The agreement number is
+example in the judge-agreement set exercises that band. The agreement number is
 computed entirely over cases where the answer was already fine.
 
 An agreement rate is only as good as the hardest case in the sample.
@@ -129,7 +129,7 @@ An agreement rate is only as good as the hardest case in the sample.
 ## Common Failure Modes
 
 - **Reporting agreement from a sample with no disagreements.** 1.000 over five
-  easy cases reads like calibration and is not. Sample where the judge is most
+  easy cases reads like agreement and is not. Sample where the judge is most
   likely to be wrong.
 - **Asking the judge to score what code can check.** Sending
   `total_reimbursable` to a rubric grader is slower, costlier, and less reliable
@@ -143,16 +143,16 @@ An agreement rate is only as good as the hardest case in the sample.
 
 ## Exercise
 
-Open `evals/strongbench_benchmark/calibration/human_reviewed.jsonl` and the
+Open `evals/strongbench_benchmark/judge_agreement/human_reviewed.jsonl` and the
 failure list in
 [`evals/reports/sample-report.md`](../../../evals/reports/sample-report.md).
 
-1. Which rubric band is completely absent from the calibration sample?
+1. Which rubric band is completely absent from the judge-agreement sample?
 2. Task `bench-054` fails deterministically (`total_reimbursable: expected
    464.00, got 214.00`). What quality label does `grade_quality` return for it,
    and which line of the function decides that?
 3. Name one task from the report's failure list that would make a better
-   calibration row than any of the five currently there, and say what it tests
+   agreement row than any of the five currently there, and say what it tests
    that they do not.
 
 Check your answer:
@@ -173,7 +173,7 @@ Check your answer:
    is what turns the agreement rate into evidence.
 ```
 
-Then extend the calibration file with your chosen row, re-run
+Then extend the judge-agreement file with your chosen row, re-run
 `python3 -m evals.runner --model scripted`, and read the new
 `rubric_agreement_rate`. If it dropped, you have learned something the old
 number was hiding.
@@ -182,7 +182,7 @@ number was hiding.
 
 You are ready to move on when you can state your judge's agreement rate, the
 size and label distribution of the sample it was measured on, and at least one
-band your calibration does not yet cover.
+band your judge-agreement set does not yet cover.
 
 ## Reading
 

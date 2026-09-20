@@ -8,11 +8,14 @@ verification, and control have different requirements. The durable engineering
 skill is choosing the cheapest adequately reliable primitive for each job and
 measuring how those primitives behave together.
 
-Jev is one current example of a Type 1 decision system. It is not a required
-provider or the definition of the category. The category also includes
-classical and neural classifiers, embedding models, rerankers, reward models,
-safety classifiers, and future systems that return constrained decisions or
-scores instead of open-ended text.
+This course calls the non-generative half of that set **constrained decision
+models**: systems that answer one predefined question with a value, score, or
+distribution over a fixed set, rather than with open-ended text. The category
+includes classical and neural classifiers, embedding models, rerankers, reward
+models, and safety classifiers, alongside hosted products that expose the same
+shape. It is named for what the component does, not for any vendor's framing of
+it; current examples are indexed in
+[references.md](references.md) and will date faster than the category will.
 
 The core curriculum must remain runnable offline. Hosted decision systems are
 optional comparison candidates, just like hosted generative models.
@@ -96,7 +99,7 @@ Use the least expensive tier that can answer the question reliably:
 
 ```text
 Tier 0  Ground truth: tests, schemas, database state, permissions, calculations
-Tier 1  Narrow judgment: classifiers, rerankers, Type 1 decision systems
+Tier 1  Narrow judgment: classifiers, rerankers, constrained decision models
 Tier 2  Deliberative verification: reasoning model, rubric, evidence, tools
 Tier 3  Human adjudication: SME review and new gold labels
 ```
@@ -166,7 +169,7 @@ trajectory, and an environmental blocker is not blamed on the policy.
 ## Cumulative Practicums
 
 1. **Intelligence Primitive Benchmark:** implement one routing task with rules,
-   a classifier, a Type 1 decision system where available, a structured-output
+   a classifier, a hosted constrained decision model where available, a structured-output
    generative model, and a cascade. Compare the Pareto frontier rather than
    declaring a universal winner.
 2. **Calibrated Verifier:** label agent trajectories, measure calibration, and

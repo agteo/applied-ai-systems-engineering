@@ -9,7 +9,7 @@ Required anchors:
 
 - Names the benchmark task set and command.
 - Reports overall success, per-tag success, safety behavior, cost or latency,
-  and judge calibration.
+  and judge agreement.
 - Quotes or summarizes specific failed task ids.
 - Separates benchmark failures from suspected agent, tool, retrieval, or grader
   causes.

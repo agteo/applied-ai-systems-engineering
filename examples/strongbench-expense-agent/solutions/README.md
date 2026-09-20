@@ -1,6 +1,6 @@
 # Level 1 Reference Solutions
 
-Four runnable solutions, one per Level 1 lab. Each is self-contained and prints what it did, so you can diff behaviour, not just code.
+Five runnable solutions, one per Level 1 lab. Each is self-contained and prints what it did, so you can diff behaviour, not just code.
 
 Level 2 reference artifacts are indexed in
 [`level-2/README.md`](level-2/README.md). They live mostly under `evals/`
@@ -13,6 +13,7 @@ not one-off lab files.
 | [Lab 2: Tool Schemas](../../../levels/01-build/labs/lab-02-tool-schemas.md) | [`lab_02_tool_schemas.py`](lab_02_tool_schemas.py) | `python solutions/lab_02_tool_schemas.py` |
 | [Lab 3: Policy Search](../../../levels/01-build/labs/lab-03-policy-search.md) | [`lab_03_policy_search.py`](lab_03_policy_search.py) | `python solutions/lab_03_policy_search.py` |
 | [Lab 4: Trace Capture](../../../levels/01-build/labs/lab-04-trace-capture.md) | [`lab_04_trace_capture.py`](lab_04_trace_capture.py) | `python solutions/lab_04_trace_capture.py` |
+| [Lab 5: Intelligence Primitive Benchmark](../../../levels/01-build/labs/lab-05-intelligence-primitive-benchmark.md) | [`lab_05_intelligence_primitive_benchmark.py`](lab_05_intelligence_primitive_benchmark.py) | `python solutions/lab_05_intelligence_primitive_benchmark.py` |
 
 ## How to use these
 
@@ -25,6 +26,8 @@ Write your own version first. Then read the solution and compare on these questi
 **Lab 3.** Can every policy claim in your final answer be traced to a `source_id` that exists in the corpus? The solution ends with a written list of the search's limitations — write your own before reading it. If your list is shorter than five items, you have not stress-tested your retrieval.
 
 **Lab 4.** Can a second script load all of your traces with plain `json.loads`, with no special cases? Run `python -m strongbench_agent.check_traces traces/level-1.jsonl` against your own bundle. It fails with the trace id and the field name, not just "invalid".
+
+**Lab 5.** Did you label the data with something no candidate produced? The solution labels from the committed `required_tools` field for exactly this reason — scoring the scripted planner against its own behaviour gives it a perfect score and teaches nothing. Then read the safety column before the accuracy column: the most accurate candidate in that table is also the one that misses the most approval-required tasks.
 
 ## What "reference" does not mean
 

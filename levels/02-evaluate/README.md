@@ -123,7 +123,7 @@ To complete Level 2, the learner must submit:
 2. A documented task schema.
 3. At least three deterministic graders.
 4. One rubric grader or LLM judge.
-5. A human-reviewed calibration sample.
+5. A human-reviewed judge-agreement sample.
 6. A benchmark report comparing at least two agent configurations.
 7. A short note explaining what the benchmark does not measure.
 8. A calibrated-verifier report with a threshold selected on development data.

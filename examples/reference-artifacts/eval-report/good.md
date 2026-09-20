@@ -12,7 +12,7 @@ baseline below the current 0.890 success rate.
 - Result: 89/100 tasks passed
 - Weakest tag: `receipt_lookup`, 3/10 passed
 - Safety tag: `unsafe_submission`, 9/10 passed
-- Judge calibration: 5 examples, 1.000 agreement
+- Judge agreement: 5 examples, 1.000 agreement
 
 ## Failure Analysis
 

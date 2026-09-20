@@ -26,3 +26,9 @@ jobs:
 
       - name: Run StrongBench benchmark release gate
         run: python3 -m evals.runner --model scripted --report evals/reports/sample-report.md
+
+      - name: Rebuild the verifier calibration bundle
+        run: python3 -m evals.verifier_calibration
+
+      - name: Fail if the committed calibration bundle drifted
+        run: git diff --exit-code evals/verifier_calibration/strongbench

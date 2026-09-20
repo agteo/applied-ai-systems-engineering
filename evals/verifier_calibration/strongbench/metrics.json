@@ -1,0 +1,207 @@
+{
+  "input_version": "strongbench-benchmark-v1",
+  "label_source": "derived-from-benchmark-oracle",
+  "operating_policy": {
+    "best_effort": true,
+    "constraint": {
+      "max_false_accepts": 0,
+      "min_precision": 0.98,
+      "selected_on": "threshold_selection"
+    },
+    "coverage": 1.0,
+    "false_accepts": 4,
+    "false_rejects": 0,
+    "precision": 0.92,
+    "reason": "best achievable precision is 0.92 at threshold 0.65, below the required 0.98",
+    "satisfied": false,
+    "threshold": 0.65
+  },
+  "question_id": "trace-support-v1",
+  "row_count": 242,
+  "slices": {
+    "adversarial_eval": {
+      "at_threshold": {
+        "coverage": 0.7705,
+        "false_accept": 83,
+        "false_reject": 6,
+        "precision": 0.117,
+        "threshold": 0.65,
+        "true_accept": 11,
+        "true_reject": 22
+      },
+      "brier_score": 0.5976,
+      "count": 122,
+      "expected_calibration_error": 0.6401,
+      "log_loss": 1.7705,
+      "negatives": 105,
+      "positives": 17,
+      "reliability": [
+        {
+          "band": "0.0-0.2",
+          "count": 0
+        },
+        {
+          "band": "0.2-0.4",
+          "count": 10,
+          "gap": 0.0789,
+          "mean_confidence": 0.2789,
+          "observed_success_rate": 0.2
+        },
+        {
+          "band": "0.4-0.6",
+          "count": 2,
+          "gap": 0.0374,
+          "mean_confidence": 0.5374,
+          "observed_success_rate": 0.5
+        },
+        {
+          "band": "0.6-0.8",
+          "count": 41,
+          "gap": 0.3967,
+          "mean_confidence": 0.6894,
+          "observed_success_rate": 0.2927
+        },
+        {
+          "band": "0.8-1.0",
+          "count": 69,
+          "gap": 0.8836,
+          "mean_confidence": 0.9126,
+          "observed_success_rate": 0.029
+        }
+      ]
+    },
+    "threshold_selection": {
+      "at_threshold": {
+        "coverage": 1.0,
+        "false_accept": 4,
+        "false_reject": 0,
+        "precision": 0.92,
+        "threshold": 0.65,
+        "true_accept": 46,
+        "true_reject": 0
+      },
+      "brier_score": 0.1011,
+      "count": 50,
+      "expected_calibration_error": 0.0826,
+      "log_loss": 0.3963,
+      "negatives": 4,
+      "positives": 46,
+      "reliability": [
+        {
+          "band": "0.0-0.2",
+          "count": 0
+        },
+        {
+          "band": "0.2-0.4",
+          "count": 0
+        },
+        {
+          "band": "0.4-0.6",
+          "count": 0
+        },
+        {
+          "band": "0.6-0.8",
+          "count": 10,
+          "gap": -0.343,
+          "mean_confidence": 0.657,
+          "observed_success_rate": 1.0
+        },
+        {
+          "band": "0.8-1.0",
+          "count": 40,
+          "gap": 0.0175,
+          "mean_confidence": 0.9175,
+          "observed_success_rate": 0.9
+        }
+      ]
+    },
+    "verifier_eval": {
+      "at_threshold": {
+        "coverage": 1.0,
+        "false_accept": 7,
+        "false_reject": 0,
+        "precision": 0.86,
+        "threshold": 0.65,
+        "true_accept": 43,
+        "true_reject": 0
+      },
+      "brier_score": 0.1519,
+      "count": 50,
+      "expected_calibration_error": 0.1362,
+      "log_loss": 0.5715,
+      "negatives": 7,
+      "positives": 43,
+      "reliability": [
+        {
+          "band": "0.0-0.2",
+          "count": 0
+        },
+        {
+          "band": "0.2-0.4",
+          "count": 0
+        },
+        {
+          "band": "0.4-0.6",
+          "count": 0
+        },
+        {
+          "band": "0.6-0.8",
+          "count": 8,
+          "gap": -0.343,
+          "mean_confidence": 0.657,
+          "observed_success_rate": 1.0
+        },
+        {
+          "band": "0.8-1.0",
+          "count": 42,
+          "gap": 0.0968,
+          "mean_confidence": 0.9302,
+          "observed_success_rate": 0.8333
+        }
+      ]
+    },
+    "weak_baseline": {
+      "at_threshold": {
+        "coverage": 0.0,
+        "false_accept": 0,
+        "false_reject": 0,
+        "precision": null,
+        "threshold": 0.65,
+        "true_accept": 0,
+        "true_reject": 20
+      },
+      "brier_score": 0.0459,
+      "count": 20,
+      "expected_calibration_error": 0.2142,
+      "log_loss": 0.2411,
+      "negatives": 20,
+      "positives": 0,
+      "reliability": [
+        {
+          "band": "0.0-0.2",
+          "count": 0
+        },
+        {
+          "band": "0.2-0.4",
+          "count": 20,
+          "gap": 0.2142,
+          "mean_confidence": 0.2142,
+          "observed_success_rate": 0.0
+        },
+        {
+          "band": "0.4-0.6",
+          "count": 0
+        },
+        {
+          "band": "0.6-0.8",
+          "count": 0
+        },
+        {
+          "band": "0.8-1.0",
+          "count": 0
+        }
+      ]
+    }
+  },
+  "verifier": "trace-support-verifier-v1"
+}

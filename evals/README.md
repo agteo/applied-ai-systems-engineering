@@ -31,7 +31,7 @@ evals/
     schema.json
     thresholds.json
     graders/
-    calibration/
+    judge_agreement/
   runner.py
   report.py
   reports/sample-report.md

@@ -26,7 +26,7 @@ benchmark can detect failure at all.
 3. headline metrics
 4. per-slice breakdown
 5. example failures, with values
-6. judge calibration summary, with its sample size
+6. judge agreement summary, with its sample size
 7. limitations
 8. recommendation: adopt, reject, or keep testing
 

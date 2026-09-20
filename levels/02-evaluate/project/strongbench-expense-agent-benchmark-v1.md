@@ -71,18 +71,18 @@ Reference:
 Note that `contract.py` imports `FINAL_ANSWER_SCHEMA` from the harness rather
 than describing the shape itself. Keep one definition.
 
-## Judge Calibration
+## Judge Agreement
 
 Label a sample by hand, have the judge label the same sample, report agreement
 **with its sample size and label distribution**.
 
 Your sample must contain examples of every band, including the lowest. The
-reference calibration set is five rows — three high, two medium, **zero low** —
+reference judge-agreement set is five rows — three high, two medium, **zero low** —
 so its agreement rate of 1.000 is computed entirely over cases that were already
 fine, and never tests the band the rubric exists to catch. Do better.
 
 Reference:
-[`calibration/human_reviewed.jsonl`](../../../evals/strongbench_benchmark/calibration/human_reviewed.jsonl).
+[`judge_agreement/human_reviewed.jsonl`](../../../evals/strongbench_benchmark/judge_agreement/human_reviewed.jsonl).
 
 ## Required Report
 
@@ -128,7 +128,7 @@ Read `weak.md` first, then `good.md`, then score yourself with `rubric.md`.
 - [ ] Benchmark runs reproducibly — same commit, same report, byte for byte.
 - [ ] Five deterministic graders implemented, accumulating failures.
 - [ ] Rubric grader implemented, with the rubric in its own file.
-- [ ] Human calibration sample includes every band.
+- [ ] Human judge-agreement sample includes every band.
 - [ ] At least two configurations compared, one a deliberately broken control.
 - [ ] A committed threshold that fails the build when crossed.
 - [ ] Report includes a recommendation and its limitations.

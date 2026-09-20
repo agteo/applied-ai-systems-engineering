@@ -107,7 +107,7 @@ can be in the dataset: **if you cannot state the correct answer before the run,
 the task cannot go in the deterministic set.**
 
 That is a real limit, not a failure. Tasks whose quality is genuinely subjective
-belong in the rubric-graded path from Lesson 4, with a calibration sample and an
+belong in the rubric-graded path from Lesson 4, with a judge-agreement sample and an
 agreement rate. Mixing them into the deterministic set produces graders that
 argue with themselves.
 

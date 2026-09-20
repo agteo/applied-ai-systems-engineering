@@ -38,7 +38,7 @@ local or low-cost hosted compute
 
 Commercial APIs and hosted training should be comparison points, not required for the core learning path.
 
-Hosted Type 1 systems such as Jev are optional candidates, not curriculum
+Hosted constrained decision models are optional candidates, not curriculum
 dependencies. Compare them with rules, embedding or encoder classifiers,
 structured-output generative models, and local alternatives on the same
 versioned decision contract.

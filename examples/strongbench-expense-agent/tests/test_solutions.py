@@ -11,11 +11,14 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = ROOT.parent.parent
 SOLUTIONS = sorted(path.name for path in (ROOT / "solutions").glob("lab_*.py"))
+LEVEL_1_LABS = sorted(path.stem for path in (REPO_ROOT / "levels" / "01-build" / "labs").glob("lab-*.md"))
 
 
-def test_all_four_labs_have_a_reference_solution():
-    assert len(SOLUTIONS) == 4, SOLUTIONS
+def test_every_level_1_lab_has_a_reference_solution():
+    """Derived from the labs on disk, so adding a lab fails until it has one."""
+    assert len(SOLUTIONS) == len(LEVEL_1_LABS), (SOLUTIONS, LEVEL_1_LABS)
 
 
 @pytest.mark.parametrize("script", SOLUTIONS)

@@ -36,7 +36,7 @@ This single constraint does most of the work:
 - It removes "what example should I use?" from the author's job. The repo
   already contains a benchmark report with real failures, 120 caught
   reward-hacking rollouts, a rejected-row log with reasons, six rubrics, and a
-  calibration sample.
+  judge-agreement sample.
 
 If you cannot find a repo artifact for a lesson, that is a signal about the
 repo, not permission to invent one.
@@ -88,7 +88,7 @@ Headings the checker recognises for criterion 3: `## Common Failure Modes`,
 
 ---
 
-## Calibration
+## Judge Agreement
 
 | | Typical lesson today | The bar |
 | --- | ---: | ---: |
@@ -111,7 +111,7 @@ get it interestingly wrong, so nothing is learned.
 
 **An exercise sends the learner to an artifact and asks them to find something
 that is not stated in the lesson.** The rubrics lesson asks which rubric band is
-missing from the calibration sample. The answer is not in the prose; it is in
+missing from the judge-agreement sample. The answer is not in the prose; it is in
 the file, and finding it changes how the reader reads every agreement rate
 afterwards.
 
@@ -126,7 +126,7 @@ Good exercise shapes, roughly in order of value:
 Then, where possible, close with a real command:
 
 ```markdown
-Then extend the calibration file with your chosen row, re-run
+Then extend the judge-agreement file with your chosen row, re-run
 `python3 -m evals.runner --model scripted`, and read the new
 `rubric_agreement_rate`. If it dropped, you have learned something the old
 number was hiding.

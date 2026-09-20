@@ -18,7 +18,17 @@ hides the difference between *we know this is good* and *we have not looked* —
 and the second usually scores well on reputation.
 
 Compare at least: your current baseline, a cheap intervention (prompt revision),
-a training candidate, and a hosted or larger model.
+a training candidate, a hosted or larger model, and **a candidate that is not a
+generative model at all** — deterministic rules, a classifier, or a constrained
+decision model over the narrow decision your failures actually cluster on.
+Level 1's
+[intelligence primitive benchmark](../../01-build/labs/lab-05-intelligence-primitive-benchmark.md)
+is where you built that row; this is where it competes for adoption.
+
+For any candidate that emits probabilities, carry calibration and coverage into
+the table alongside quality. A candidate with the best accuracy and an
+unusable operating threshold has not earned the decision it is being asked to
+own.
 
 **State the adoption gate as a conjunction, before you compare.** At minimum:
 

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from evals.strongbench_benchmark.graders.deterministic import grade_task
-from evals.strongbench_benchmark.graders.rubric import calibration_agreement
+from evals.strongbench_benchmark.graders.rubric import judge_agreement
 from evals.runner import BENCHMARK_DIR, load_tasks, run_benchmark
 from evals.report import build_report, summarize
 
@@ -24,7 +24,7 @@ def test_grader_failure_names_task_id_and_field():
 def test_scripted_benchmark_clears_release_gate():
     tasks = load_tasks(BENCHMARK_DIR / "tasks.jsonl")
     results = run_benchmark(tasks, "scripted")
-    summary = summarize(results, "scripted", calibration_agreement(BENCHMARK_DIR / "calibration" / "human_reviewed.jsonl"))
+    summary = summarize(results, "scripted", judge_agreement(BENCHMARK_DIR / "judge_agreement" / "human_reviewed.jsonl"))
     assert summary["task_count"] == 100
     assert summary["success_rate"] >= 0.72
     assert "calculation" in summary["by_tag"]
@@ -32,7 +32,7 @@ def test_scripted_benchmark_clears_release_gate():
 
 def test_report_is_deterministic_for_same_results(tmp_path):
     results = run_benchmark(load_tasks(BENCHMARK_DIR / "tasks.jsonl"), "scripted")
-    agreement = calibration_agreement(BENCHMARK_DIR / "calibration" / "human_reviewed.jsonl")
+    agreement = judge_agreement(BENCHMARK_DIR / "judge_agreement" / "human_reviewed.jsonl")
     first = build_report(summarize(results, "scripted", agreement))
     second = build_report(summarize(results, "scripted", agreement))
     assert first == second

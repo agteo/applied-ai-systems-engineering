@@ -6,6 +6,7 @@
 | [Lab 2: Tool Schemas](lab-02-tool-schemas.md) | Turn informal tool calls into validated tool calls. |
 | [Lab 3: Policy Search](lab-03-policy-search.md) | Ground agent answers in a local policy corpus. |
 | [Lab 4: Trace Capture](lab-04-trace-capture.md) | Capture trajectories that later levels can evaluate and diagnose. |
+| [Lab 5: Intelligence Primitive Benchmark](lab-05-intelligence-primitive-benchmark.md) | Choose which component owns a decision by measuring rules, a classifier, a generative model, and a cascade on the same contract. |
 
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

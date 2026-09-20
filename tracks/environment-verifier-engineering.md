@@ -17,7 +17,7 @@ That is stronger than asking whether the final response sounds good.
 | Deterministic verifier | `assert invoice.total == 183.42` |
 | State verifier | Check that a simulated database, calendar, ticket, or approval state changed correctly. |
 | Constraint verifier | Score partial completion across required conditions. |
-| Decision-model verifier | Use a classifier, reranker, reward model, or Type 1 system for a narrow semantic judgment. |
+| Decision-model verifier | Use a classifier, reranker, reward model, or other constrained decision model for a narrow semantic judgment. |
 | Reasoning verifier | Use a tool-capable reasoning model for evidence-heavy judgments that require decomposition. |
 | Human verifier | Adjudicate consequential uncertainty and produce trusted labels. |
 

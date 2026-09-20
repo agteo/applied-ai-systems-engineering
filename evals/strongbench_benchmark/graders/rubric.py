@@ -1,4 +1,4 @@
-"""Offline rubric grader and calibration agreement."""
+"""Offline rubric grader and judge agreement."""
 
 from __future__ import annotations
 
@@ -25,7 +25,13 @@ def grade_quality(task: dict[str, Any], trace: dict[str, Any]) -> str:
     return "medium"
 
 
-def calibration_agreement(path: str | Path) -> dict[str, Any]:
+def judge_agreement(path: str | Path) -> dict[str, Any]:
+    """How often the rubric grader and the human reviewer chose the same band.
+
+    This is judge agreement, not probability calibration. It says nothing about
+    whether a confidence score predicts correctness — that is measured in
+    `evals.verifier_calibration`.
+    """
     rows = []
     with open(path, encoding="utf-8") as handle:
         for line in handle:

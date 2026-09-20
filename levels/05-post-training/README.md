@@ -93,7 +93,6 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 3: LoRA Experiment](labs/lab-03-lora-experiment.md) | Run a small adapter experiment for Track 5B. |
 | [Lab 4: Model Comparison](labs/lab-04-model-comparison.md) | Compare systems on the Level 2 benchmark. |
 | [Lab 5: Gateway Failover Drill](labs/lab-05-gateway-failover-drill.md) | Route the agent through a gateway and verify fallback behavior. |
-| [Lab 6: Intelligence Primitive Benchmark](labs/lab-06-intelligence-primitive-benchmark.md) | Compare rules, specialised models, generative models, and cascades. |
 
 ## Projects
 

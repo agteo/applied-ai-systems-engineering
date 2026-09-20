@@ -103,11 +103,11 @@ LoRA run. The real question is not only "should we train?" but:
 Which component should own this computation?
 ```
 
-Compare rules, retrieval, classifiers, Type 1 decision systems, structured
+Compare rules, retrieval, classifiers, constrained decision models, structured
 generative models, and cascades on the same held-out cases. Use quality,
 calibration, automation coverage, latency, cost, privacy, and fallback behavior.
-Jev may be one optional hosted candidate; it is neither required nor a proxy for
-the entire category.
+A hosted product may be one optional candidate; it is neither required nor a
+proxy for the entire category.
 
 A classifier that routes correctly at useful coverage may remove work from the
 generative model. A reasoning model may still be appropriate for ambiguous

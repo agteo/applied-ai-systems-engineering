@@ -14,7 +14,6 @@ This page is the index. Each reference is also assigned to the lesson where it d
 | WebArena | [Level 6, Lesson 1: Environment thinking](../levels/06-environments/lessons/01-environment-thinking.md) |
 | TRL and PEFT | [Level 5, Lesson 4: LoRA and QLoRA](../levels/05-post-training/lessons/04-lora-and-qlora.md) and [Level 7, Lesson 5: PPO and GRPO](../levels/07-reinforcement-learning/lessons/05-ppo-and-grpo.md) |
 | ML prerequisite courses | [Level 5, Lesson 2: ML foundations](../levels/05-post-training/lessons/02-ml-foundations.md) |
-| TypeSafe System One / Jev | [Level 1, Lesson 1: What is an agent?](../levels/01-build/lessons/01-what-is-an-agent.md) and [Level 5, Lesson 1: When to train](../levels/05-post-training/lessons/01-when-to-train.md) |
 | Universal Verifier | [Level 6, Lesson 5: Rewards and success checks](../levels/06-environments/lessons/05-rewards-and-success-checks.md) |
 | RLCR | [Level 2, Lesson 5: Metrics and confidence](../levels/02-evaluate/lessons/05-metrics-and-confidence.md) |
 | AgentV-RL | [Level 7, Lesson 2: Rewards and reward hacking](../levels/07-reinforcement-learning/lessons/02-rewards-and-reward-hacking.md) |
@@ -38,9 +37,14 @@ This page is the index. Each reference is also assigned to the lesson where it d
 
 ## Decision And Verifier Systems
 
-- [TypeSafe: Introducing System One Models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev): a current hosted example of constrained probabilistic decisions. Treat its speed, cost, and comparative performance figures as vendor claims until reproduced on the course benchmark.
+The course calls this category **constrained decision models** and teaches it
+provider-neutrally. Hosted products in the category are optional comparison
+candidates, and their launch materials date quickly: treat any speed, cost, or
+comparative performance figure as a vendor claim until it is reproduced on the
+course benchmark. No lesson depends on one being available.
+
 - [Microsoft Research: The Art of Building Verifiers for Computer Use Agents](https://www.microsoft.com/en-us/research/articles/the-art-of-building-verifiers-for-computer-use-agents/): evidence for specific rubric design, separating process and outcome, and evaluating verifier quality against human labels.
-- [RLCR: Beyond Binary Rewards](https://openreview.net/pdf?id=ASQ649zdHm): calibration-aware reinforcement learning using a proper scoring rule. It is relevant to confidence-aware reward design but is not the same method as TypeSafe's RLCD.
+- [RLCR: Beyond Binary Rewards](https://openreview.net/pdf?id=ASQ649zdHm): calibration-aware reinforcement learning using a proper scoring rule, relevant to confidence-aware reward design. Note that it trains for calibration, which is a different intervention from selecting a threshold after the fact.
 - [AgentV-RL](https://arxiv.org/abs/2604.16004): an example of multi-turn, tool-augmented verification for tasks too complex for a narrow classifier.
 
 ## ML Prerequisites

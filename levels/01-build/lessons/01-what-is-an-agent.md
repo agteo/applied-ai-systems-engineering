@@ -101,9 +101,9 @@ This repo begins with `ScriptedModel` and `AnthropicModel` because one interface
 makes the first loop easy to inspect. It is not an architectural claim that one
 model should calculate, route, judge, verify, and write in production.
 
-A Type 1 decision system such as a traditional classifier, encoder, reward
-model, safety model, or hosted system like Jev can return a constrained choice
-or score cheaply. A typed answer still can be wrong. Preserve the selected
+A constrained decision model — a classifier, encoder, reranker, reward model,
+or safety model — answers one predefined question with a value or a score,
+cheaply. A typed answer still can be wrong. Preserve the selected
 value, probability distribution where available, component version, and the
 question version in the trace so Level 2 can test calibration and thresholds.
 
@@ -207,6 +207,6 @@ explain why an invalid tool call should not end a run.
 - [`evals/operations/strongbench/taxonomy.md`](../../../evals/operations/strongbench/taxonomy.md)
   — the failure labels, three levels ahead. Reading them early tells you what
   the harness will be asked to make visible.
-- [TypeSafe: Introducing System One Models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
-  — one current hosted example of typed probabilistic decisions. Read it as a
-  provider case study, and treat its performance figures as claims to reproduce.
+- [`levels/01-build/labs/lab-05-intelligence-primitive-benchmark.md`](../labs/lab-05-intelligence-primitive-benchmark.md)
+  — the lab that makes this concrete. Four candidates, one routing decision, and
+  a table where the most accurate one is not the one you would ship.

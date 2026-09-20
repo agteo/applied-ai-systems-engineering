@@ -105,8 +105,9 @@ Learners should understand:
 - why typed output guarantees shape, not correctness
 
 These concepts begin in Level 1, become measurable in Level 2, and form a
-continuous thread through diagnosis, data, environments, and RL. Jev may be
-used as one optional hosted example; the concepts are provider-neutral.
+continuous thread through diagnosis, data, environments, and RL. Hosted
+products in this category are optional comparison candidates only; the concepts
+are provider-neutral.
 
 ## 5. Failure Diagnosis
 

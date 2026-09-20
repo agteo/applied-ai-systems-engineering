@@ -14,7 +14,7 @@ from typing import Any
 
 from datasets.strongbench import DEFAULT_OUT as DATASET_DIR
 from datasets.strongbench import build_dataset, write_dataset
-from evals.strongbench_benchmark.graders.rubric import calibration_agreement
+from evals.strongbench_benchmark.graders.rubric import judge_agreement
 from evals.report import summarize
 from evals.runner import BENCHMARK_DIR, DEFAULT_TASKS, load_tasks, run_benchmark
 
@@ -63,7 +63,7 @@ def build_phase5_bundle(dataset_dir: Path = DEFAULT_DATASET_DIR) -> dict[str, An
 
     tasks = load_tasks(DEFAULT_TASKS)
     results = run_benchmark(tasks, "scripted")
-    agreement = calibration_agreement(BENCHMARK_DIR / "calibration" / "human_reviewed.jsonl")
+    agreement = judge_agreement(BENCHMARK_DIR / "judge_agreement" / "human_reviewed.jsonl")
     benchmark_summary = summarize(results, model="scripted", rubric_agreement=agreement)
     threshold = json.loads((BENCHMARK_DIR / "thresholds.json").read_text(encoding="utf-8"))["min_success_rate"]
 

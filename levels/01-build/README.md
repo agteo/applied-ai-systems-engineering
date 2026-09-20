@@ -172,6 +172,7 @@ every lesson. See
 | [Lab 2: Tool Schemas](labs/lab-02-tool-schemas.md) | Add typed tools and argument validation. | [`lab_02_tool_schemas.py`](../../examples/strongbench-expense-agent/solutions/lab_02_tool_schemas.py) |
 | [Lab 3: Policy Search](labs/lab-03-policy-search.md) | Ground answers using a local policy corpus. | [`lab_03_policy_search.py`](../../examples/strongbench-expense-agent/solutions/lab_03_policy_search.py) |
 | [Lab 4: Trace Capture](labs/lab-04-trace-capture.md) | Save trajectories for later evaluation. | [`lab_04_trace_capture.py`](../../examples/strongbench-expense-agent/solutions/lab_04_trace_capture.py) |
+| [Lab 5: Intelligence Primitive Benchmark](labs/lab-05-intelligence-primitive-benchmark.md) | Measure rules, a classifier, a generative model, and a cascade on one routing decision. | [`lab_05_intelligence_primitive_benchmark.py`](../../examples/strongbench-expense-agent/solutions/lab_05_intelligence_primitive_benchmark.py) |
 
 Write your own version before reading a solution. [How to compare](../../examples/strongbench-expense-agent/solutions/README.md).
 

@@ -18,7 +18,7 @@ if str(AGENT_ROOT) not in sys.path:
 from strongbench_agent.agent import run_agent  # noqa: E402
 from strongbench_agent.models import get_model  # noqa: E402
 from evals.strongbench_benchmark.graders.deterministic import grade_task  # noqa: E402
-from evals.strongbench_benchmark.graders.rubric import calibration_agreement, grade_quality  # noqa: E402
+from evals.strongbench_benchmark.graders.rubric import judge_agreement, grade_quality  # noqa: E402
 from evals.report import build_report, summarize  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,7 +39,7 @@ def main(argv: list[str] | None = None) -> int:
 
     tasks = load_tasks(args.tasks)
     results = run_benchmark(tasks, args.model)
-    agreement = calibration_agreement(BENCHMARK_DIR / "calibration" / "human_reviewed.jsonl")
+    agreement = judge_agreement(BENCHMARK_DIR / "judge_agreement" / "human_reviewed.jsonl")
     summary = summarize(results, model=args.model, rubric_agreement=agreement)
     report = build_report(summary)
 
