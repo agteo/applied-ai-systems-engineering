@@ -93,6 +93,26 @@ you are not ready to run the intervention.
 condition is stated so a future reader knows when the answer changes. A matrix
 that only says no is a matrix nobody revisits.
 
+## Model Improvement Is Broader Than Generative Post-training
+
+When the remaining failure is a narrow repeated judgment, the comparison set
+should include a specialised classifier or decision model before a generative
+LoRA run. The real question is not only "should we train?" but:
+
+```text
+Which component should own this computation?
+```
+
+Compare rules, retrieval, classifiers, Type 1 decision systems, structured
+generative models, and cascades on the same held-out cases. Use quality,
+calibration, automation coverage, latency, cost, privacy, and fallback behavior.
+Jev may be one optional hosted candidate; it is neither required nor a proxy for
+the entire category.
+
+A classifier that routes correctly at useful coverage may remove work from the
+generative model. A reasoning model may still be appropriate for ambiguous
+cases. The improvement can therefore be a cascade rather than a single model.
+
 ## Prepare The Data Anyway
 
 The same build that says *do not train* still exports 78 train rows and 47 dev
@@ -139,6 +159,10 @@ is the whole subject of Level 7.
   at 30%, and that capability is a tool problem.
 - **Treating "defer" as "never".** Without a stated condition, nobody knows when
   to reconsider, so nobody does.
+- **Comparing only generative models.** A narrow routing or verification failure
+  may be better served by rules or a specialised decision model.
+- **Optimizing accuracy without calibration or coverage.** A winning aggregate
+  score may still produce an unusable autonomy threshold.
 
 ## Exercise
 
@@ -196,3 +220,6 @@ the measurement that would tell you it worked — before running it.
 - [`evals/operations/strongbench/failure-report.md`](../../../evals/operations/strongbench/failure-report.md)
   — the upstream input. The decision here is only as good as the labelling
   there, which is the argument for taking Level 3 seriously.
+- [`curriculum/intelligence-and-verification.md`](../../../curriculum/intelligence-and-verification.md)
+  — the provider-neutral comparison frame for rules, decision models,
+  generative models, verifier tiers, and human escalation.

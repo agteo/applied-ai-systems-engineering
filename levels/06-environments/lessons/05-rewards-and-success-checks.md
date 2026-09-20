@@ -49,6 +49,33 @@ agent is rewarded for, you change a *verifier*, and the reward follows. If you
 find yourself adding logic to `score_reward`, that logic belongs in
 `verify_rollout` as a named check instead.
 
+## Build A Verifier Cascade, Not One Omniscient Judge
+
+As environments become less synthetic, route each question to the cheapest tier
+that can answer it reliably:
+
+```text
+Tier 0  tests, database state, schemas, permissions, exact calculations
+Tier 1  classifiers, rerankers, and constrained decision models
+Tier 2  reasoning or agentic verifiers with rubrics, evidence, and tools
+Tier 3  human or subject-matter expert adjudication
+```
+
+This is not a requirement to call all four tiers. A Tier 0 permission failure
+can veto immediately. A calibrated Tier 1 verifier can accept, reject, or
+escalate ambiguous cases. Tier 2 earns its expense when the judgment genuinely
+requires synthesis or external grounding.
+
+Every learned verifier result in a rollout should include its version, question
+or rubric version, probabilities where available, threshold, evidence, and
+escalation decision. Preserve process and outcome verdicts separately. A task
+can succeed through a reckless process, or fail because the environment was
+blocked despite a sound process.
+
+Before turning a learned verdict into reward, evaluate its false accepts and
+false rejects against trusted labels. Typed output guarantees only that the
+reward pipeline receives a valid value—not that the value is correct.
+
 The components, and what each one buys, are documented alongside the code in
 [`environments/strongbench_finance/reward-design.md`](../../../environments/strongbench_finance/reward-design.md):
 
@@ -163,6 +190,10 @@ bad, and this environment has only done the second.
 - **Declaring victory on a reward that only separates good from catastrophic.**
   Ranking your reference policy above a deliberately broken one is a sanity
   check, not evidence the reward is well shaped.
+- **One learned judge for every check.** It wastes ground truth, hides ownership,
+  and turns one verifier failure into a system-wide reward error.
+- **Using confidence without calibration.** An arbitrary threshold is not an
+  escalation policy.
 
 ## Exercise
 
@@ -215,3 +246,6 @@ can name one exploit your reward does not yet price.
 - [`environments/strongbench_finance/__init__.py`](../../../environments/strongbench_finance/__init__.py)
   — read `verify_rollout` and `score_reward` together, in that order. The
   ordering is the design: checks decide, the reward only converts.
+- [Microsoft Research: The Art of Building Verifiers for Computer Use Agents](https://www.microsoft.com/en-us/research/articles/the-art-of-building-verifiers-for-computer-use-agents/)
+  — evidence for specific rubrics, separating process and outcome, and
+  evaluating verifier quality rather than treating its labels as truth.

@@ -17,6 +17,8 @@ By the end of this level, learners can:
 5. Add human approval for risky actions.
 6. Produce a structured final response.
 7. Capture traces that later levels can evaluate and diagnose.
+8. Choose between deterministic code, a specialised decision system, a
+   generative model, and human review for each major computation.
 
 ## Required Build
 
@@ -50,6 +52,14 @@ Structured Final Answer
 An LLM call maps input messages to output text or structured data.
 
 An agent is a system around one or more model calls that can inspect state, choose actions, use tools, observe results, and decide what to do next.
+
+### Choose The Intelligence Primitive
+
+Do not make the main LLM the router, calculator, policy checker, judge, and
+writer by default. Exact calculations belong in code, record access belongs in
+tools, narrow semantic routing may belong in a classifier or decision model,
+and complex synthesis may belong in a generative model. Record which component
+made each decision so later levels can evaluate it.
 
 ### Agent Harness
 
@@ -149,6 +159,10 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 5 | Human approval | Approval gate for risky actions |
 | 6 | Final answer contracts | Structured reimbursement recommendation |
 | 7 | Hardening the harness | Timeouts, max steps, errors, retries |
+
+The intelligence-primitive decision introduced in Lesson 1 is revisited in
+every lesson. See
+[`curriculum/intelligence-and-verification.md`](../../curriculum/intelligence-and-verification.md).
 
 ## Labs
 

@@ -19,6 +19,9 @@ By the end of this level, learners can:
 5. Use LLM-as-judge carefully and calibrate it against human review.
 6. Detect regressions between agent versions.
 7. Produce an eval report that supports an engineering decision.
+8. Measure calibration and choose confidence thresholds for automation,
+   escalation, or abstention.
+9. Evaluate verifier false accepts and false rejects against trusted labels.
 
 ## Required Build
 
@@ -40,6 +43,7 @@ Trace + Final Answer
     +-- deterministic graders
     +-- rubric graders
     +-- LLM judge
+    +-- classifier / decision verifier
     +-- human review sample
     |
     v
@@ -74,6 +78,10 @@ The main Level 2 metrics are:
 - cost
 - latency
 - judge agreement with human review
+- Brier score or log loss
+- calibration error and reliability by confidence bucket
+- automation coverage at a required precision or safety level
+- verifier false-accept and false-reject rates
 
 ### Regression
 
@@ -101,6 +109,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 2: Deterministic Graders](labs/lab-02-deterministic-graders.md) | Grade structured output, citations, and approvals. |
 | [Lab 3: Rubric Judge](labs/lab-03-rubric-judge.md) | Build and calibrate an LLM judge. |
 | [Lab 4: Eval Report](labs/lab-04-eval-report.md) | Turn scores into an engineering recommendation. |
+| [Lab 5: Calibrated Verifier](labs/lab-05-calibrated-verifier.md) | Evaluate probabilities and choose an automation threshold. |
 
 ## Project
 
@@ -117,6 +126,7 @@ To complete Level 2, the learner must submit:
 5. A human-reviewed calibration sample.
 6. A benchmark report comparing at least two agent configurations.
 7. A short note explaining what the benchmark does not measure.
+8. A calibrated-verifier report with a threshold selected on development data.
 
 The learner should be able to say:
 
@@ -126,4 +136,3 @@ policy citation failures. I trust this because deterministic graders cover
 structured correctness, the LLM judge agrees with human review on 84% of
 sampled cases, and the confidence interval does not overlap the previous run.
 ```
-

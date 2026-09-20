@@ -2,11 +2,17 @@
 
 ## Thesis
 
-Applied AI Systems Engineering is the discipline of building AI systems whose behavior can be measured, diagnosed, improved, and owned.
+Applied AI Systems Engineering is the discipline of building intelligence systems whose behavior can be measured, diagnosed, improved, and owned.
 
 The curriculum is designed around one belief: building an agent is only the beginning. Serious engineering starts when you can explain whether the system works, why it fails, what data would improve it, and whether the organization should rely on a frontier API, retrieval system, workflow automation, local model, fine-tuned adapter, or reinforcement learning loop.
 
-Agents are used as the practical course vehicle because they expose the whole applied AI stack: orchestration, tools, business data, evals, traces, feedback, post-training, environments, and deployment tradeoffs.
+Agents are used as the practical course vehicle because they expose the whole applied AI stack: deterministic software, specialised decision models, generative models, orchestration, tools, business data, evals, traces, feedback, post-training, environments, and deployment tradeoffs.
+
+The course treats policy and verification as two interlocking loops. The policy
+loop chooses and executes actions. The verification loop combines code,
+classifiers and decision models, reasoning judges, and human review to measure
+those actions and turn outcomes into release decisions, data, and reward. See
+[intelligence-and-verification.md](intelligence-and-verification.md).
 
 ## Curriculum Shape
 
@@ -119,6 +125,21 @@ Learners should know how production traces become eval datasets, regression pack
 
 Whenever possible, task success should be checked by deterministic, state, or constraint verifiers instead of only by model-based judgment.
 
+### Match The Primitive To The Computation
+
+Do not ask one generative model to calculate, retrieve, route, judge, verify,
+and write by default. Use deterministic code for exact checks, specialised
+decision systems for narrow semantic judgments, reasoning models for complex
+synthesis, and humans for consequential unresolved uncertainty. Every choice
+must earn its place on quality, calibration, latency, cost, and operational
+risk.
+
+### Verifiers Must Be Evaluated
+
+A verifier is another fallible system. Measure it against trusted labels,
+separate process from outcome, record false accepts and false rejects, and test
+whether an optimizing policy can exploit it.
+
 ### Diagnosis Comes Before Optimization
 
 The curriculum should train learners to avoid vague claims like "the model is bad" and instead say, "most failures come from incorrect tool arguments after ambiguous entity resolution."
@@ -153,6 +174,8 @@ These concepts are revisited throughout the course:
 - improvements must be tested, not trusted
 - data is the bridge between failure and learning
 - verifiers are the bridge between evaluation and reward
+- confidence is useful only when it is calibrated
+- the verifier itself needs evals
 
 ## Competency Targets
 

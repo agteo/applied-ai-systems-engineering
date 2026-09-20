@@ -108,6 +108,34 @@ Every reward has a hole of this shape. The discipline is to find yours, write it
 down where the results are published, and state the external check that
 compensates.
 
+## Learned Verifiers Create A Second Optimization Target
+
+If a reward component is produced by a classifier or reasoning judge, the
+policy is not only learning to accomplish the task. It is also searching for
+trajectories that make that verifier emit a high score:
+
+```text
+policy -> environment -> learned verifier -> reward -> policy update
+                              ^                    |
+                              +---- pressure ------+
+```
+
+The intended behavior and "looks correct to this verifier" overlap, but they
+are not identical. Treat verifier quality as its own empirical problem:
+
+1. Freeze a human-reviewed verifier evaluation set.
+2. Record false accepts and false rejects before optimization.
+3. Write adversarial policies and hard negatives.
+4. Keep deterministic safety and state checks as independent vetoes.
+5. Sample disagreements for stronger-model or human adjudication.
+6. Re-evaluate the verifier under the optimized policy's distribution.
+
+A rise in the reward produced by the verifier being optimized is not
+independent evidence. Require unchanged or improved deterministic outcomes,
+protected safety slices, and independent review. If exploit cases are added to
+training, test the repair on a separate frozen adversarial set so the exploit
+did not merely move.
+
 ## Common Failure Modes
 
 - **Looking for exploits after training.** The optimised policy is the worst
@@ -122,6 +150,12 @@ compensates.
 - **No held-out set.** Nothing else distinguishes reasoning from recall.
 - **Not publishing the known hole.** The next reader assumes the reward is
   complete, because nothing said otherwise.
+- **Treating a learned verifier as ground truth.** Its false accepts become
+  mislabeled rollouts and its false rejects suppress valid strategies.
+- **Testing verifier repair on exploit examples used to repair it.** This
+  measures memorisation rather than resistance to the exploit class.
+- **Letting dense semantic reward override hard safety checks.** Learned reward
+  should not average away a deterministic violation.
 
 ## Exercise
 
@@ -185,3 +219,6 @@ covers it.
   — the decision rule that a trained policy has to clear. Notice it is a
   conjunction of held-out improvement and no safety regression, which is this
   lesson's two ideas expressed as a gate.
+- [AgentV-RL](https://arxiv.org/abs/2604.16004)
+  — a multi-turn, tool-augmented verifier example that marks the boundary where
+  narrow classifiers may be insufficient for complex verification.

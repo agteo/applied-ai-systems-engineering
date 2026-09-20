@@ -106,6 +106,30 @@ nothing to protect — they were not derived from any evaluation.
 Three types, three policies, one field deciding all of them. That is what makes
 `source_type` structural rather than descriptive.
 
+## Decision And Verifier Data Add New Roles
+
+Once a learned component routes or verifies the agent, rows also need a
+`label_role` separate from `source_type`:
+
+| `label_role` | Purpose |
+| --- | --- |
+| `classifier_train` | fit or prompt-develop the decision boundary |
+| `hard_negative` | expose plausible false positives |
+| `calibration` | fit probability calibration without changing the classifier |
+| `threshold_selection` | choose automation and escalation operating points |
+| `verifier_eval` | final held-out false-accept and false-reject measurement |
+| `adversarial_eval` | freeze known and anticipated verifier exploits |
+
+Do not collapse these roles because they all contain labels. Training on the
+calibration set makes calibration optimistic. Choosing a threshold on
+`verifier_eval` makes final precision and coverage optimistic. Training on an
+exploit and claiming success on that identical exploit shows memorisation, not
+verifier robustness.
+
+Disagreement is data rather than dirt. Preserve reviewer labels and an
+adjudicated label separately, especially for cases that will route to humans.
+If experts disagree, a confident binary target may be the wrong representation.
+
 ## Common Failure Modes
 
 - **Mixing types without recording which is which.** Every downstream rule needs
@@ -120,6 +144,10 @@ Three types, three policies, one field deciding all of them. That is what makes
   corrections have one, and there may be fewer than you assumed.
 - **One provenance schema for all types.** Different origins need different
   fields to be auditable.
+- **Using one split for training, calibration, threshold selection, and test.**
+  Each reuse leaks information into the reported operating point.
+- **Deleting disagreements.** It hides irreducible ambiguity precisely where
+  abstention and human escalation matter.
 
 ## Exercise
 

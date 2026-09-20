@@ -20,6 +20,8 @@ By the end of this level, learners can:
 6. Detect simulator bias and unrealistic shortcuts.
 7. Convert verifier outputs into reward components.
 8. Produce rollouts that can feed Level 7 reinforcement learning.
+9. Build a tiered verifier cascade and evaluate each learned verifier against
+   trusted labels.
 
 ## Required Build
 
@@ -53,6 +55,19 @@ Observation + reward signal
   v
 Agent continues or stops
 ```
+
+## Verifier Cascade
+
+```text
+Tier 0: deterministic ground truth and state checks
+  -> Tier 1: narrow classifiers and decision models
+  -> Tier 2: reasoning or agentic verifier when uncertain
+  -> Tier 3: human adjudication for consequential unresolved cases
+```
+
+The tiers are routing options, not mandatory serial calls. Deterministic safety
+checks may veto immediately. Every learned verifier must preserve its version,
+probabilities, threshold, evidence, and escalation decision in the rollout.
 
 ## StrongBench Finance Operations Simulator Scope
 
@@ -119,3 +134,5 @@ To complete Level 6, the learner must submit:
 5. A reward function derived from verifier components, with known limitations.
 6. Reproducible rollout logs.
 7. A realism and simulator-bias note.
+8. A verifier report covering trusted-label agreement, false accepts, false
+   rejects, escalation behavior, and known blind spots.

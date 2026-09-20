@@ -85,6 +85,12 @@ Agents are the course's practical vehicle because they expose the full applied A
 loop: tool use, workflow integration, evals, failure diagnosis, data generation,
 model adaptation, simulated environments, and reinforcement learning.
 
+The course does not assume one generative model should perform every job.
+Learners combine deterministic code, specialised classifiers and decision
+models, generative models, and human review, then evaluate both the policy and
+the verifier stack. See the
+[intelligence and verification architecture](curriculum/intelligence-and-verification.md).
+
 ```text
 Build → Evaluate → Diagnose → Data → Post-train → Environments → RL
 ```

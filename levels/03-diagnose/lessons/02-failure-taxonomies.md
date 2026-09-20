@@ -110,6 +110,33 @@ nineteen from `weak-no-tool`. Recording which configuration produced a failure
 is what lets you say a category belongs to one build rather than to the agent in
 general.
 
+## Extend The Taxonomy When Decisions Become Components
+
+When the architecture contains learned routers or verifiers, `MODEL.*` is too
+coarse. Add namespaces that identify the component and repair:
+
+```text
+DECISION.schema                 output contract or question shape is wrong
+DECISION.false_positive         action selected when it should not be
+DECISION.false_negative         action missed when it was required
+DECISION.miscalibration         confidence does not predict correctness
+DECISION.threshold              model may be adequate; operating point is not
+DECISION.missing_context        required state never reached the component
+DECISION.distribution_shift     deployed cases differ from evaluation data
+
+VERIFIER.rubric                 success criterion is ambiguous or incomplete
+VERIFIER.grounding              verdict is unsupported by allowed evidence
+VERIFIER.false_accept           bad behavior receives a passing verdict
+VERIFIER.false_reject           valid behavior is rejected
+VERIFIER.process_outcome_confusion
+VERIFIER.adversarial_susceptibility
+```
+
+Keep policy failure and verifier failure separate. If an agent chose the wrong
+tool and the verifier accepted it, the trace has both a policy error and
+`VERIFIER.false_accept`. The second label does not erase the first; it explains
+why the evaluation or reward system failed to expose it.
+
 ## From Label To Action
 
 The bundle carries three fields per row, and they are deliberately separate:
@@ -141,6 +168,11 @@ two when the first changes.
   one build looks like a property of the agent.
 - **Never measuring agreement.** Two reviewers, twenty traces, compare. If they
   disagree often, your counts are noise and your priorities are arbitrary.
+- **Calling every learned-component failure `MODEL.*`.** A bad policy decision,
+  a bad verifier verdict, a bad threshold, and miscalibration require different
+  owners and experiments.
+- **Using verifier output as the failure label.** The verifier is evidence to
+  audit, not ground truth by definition.
 
 ## Exercise
 

@@ -14,6 +14,9 @@ Proprietary data must be curated, not dumped into training.
 Local models must be evaluated, not romanticized.
 Improvements must be tested, not trusted.
 Data is the bridge between failure and learning.
+Match the intelligence primitive to the computation.
+Confidence must predict correctness before it controls autonomy.
+Eval the agent, eval the verifier, then test whether the agent games it.
 ```
 
 ## 1. Agent System Fundamentals
@@ -76,12 +79,34 @@ Learners should understand:
 - human evaluation
 - pairwise comparisons
 - precision, recall, F1, pass rate, and pass@k
+- Brier score, log loss, and calibration error
+- reliability diagrams and risk-coverage curves
+- selective accuracy, abstention, and escalation thresholds
 - cost, latency, and quality tradeoffs
 - statistical confidence
 - eval leakage and contamination
 - regression testing
 
 This is the conceptual center of Level 2.
+
+## 4a. Decision and Verifier Engineering
+
+Learners should understand:
+
+- deterministic code vs classifiers vs generative reasoning
+- semantic routers, rerankers, reward models, and safety classifiers
+- provider-neutral typed decisions and probability distributions
+- decision systems vs verifiers as separate roles
+- tiered verification: code, narrow models, reasoning judges, and humans
+- process verification vs outcome verification
+- false accepts, false rejects, and asymmetric error costs
+- calibration as an operational control property
+- verifier evaluation, distribution shift, and adversarial testing
+- why typed output guarantees shape, not correctness
+
+These concepts begin in Level 1, become measurable in Level 2, and form a
+continuous thread through diagnosis, data, environments, and RL. Jev may be
+used as one optional hosted example; the concepts are provider-neutral.
 
 ## 5. Failure Diagnosis
 
@@ -97,6 +122,8 @@ Learners should understand:
 - ambiguity and underspecification
 - environment failures
 - grader failures
+- decision threshold and calibration failures
+- verifier false accepts and false rejects
 - root cause analysis
 - designing interventions and experiments
 
@@ -117,6 +144,7 @@ Learners should understand:
 - dataset quality metrics
 - dataset cards
 - provenance and licensing
+- hard negatives, disagreements, and calibration datasets
 
 This is the conceptual center of Level 4.
 
@@ -181,6 +209,7 @@ Learners should understand:
 - LoRA and QLoRA
 - DPO
 - reward models
+- specialised classifiers and verifier models
 - model distillation
 - quantization
 - model serving constraints
@@ -272,6 +301,7 @@ These concepts turn course projects into production engineering practice.
 | LLM foundations | Foundations, Level 1 | Level 2, Level 5 |
 | Software engineering for agents | Level 1 | Level 2, Level 3 |
 | Evaluation and measurement | Level 2 | All later levels |
+| Decision and verifier engineering | Level 2 | Levels 1, 3, 4, 5, 6, 7 |
 | Failure diagnosis | Level 3 | Level 4, Level 5, Level 7 |
 | Data and feedback | Level 4 | Level 5, Level 7 |
 | Retrieval and knowledge systems | Level 1 | Level 2, Level 3, Level 5 |

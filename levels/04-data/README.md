@@ -19,6 +19,8 @@ By the end of this level, learners can:
 5. Separate training, development, and evaluation data.
 6. Document dataset provenance, limitations, and quality metrics.
 7. Publish a dataset card.
+8. Build classifier, verifier, calibration, and adversarial datasets without
+   contaminating final evaluation.
 
 ## Pipeline
 
@@ -30,6 +32,8 @@ Eval failures
 Human examples
       +
 Synthetic examples
+      +
+Human decision labels and disagreements
       |
       v
 Clean -> Classify -> Deduplicate -> Filter -> Score -> Dataset
@@ -48,6 +52,10 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 5 | Preference and correction data | Preference pairs |
 | 6 | Splits and contamination | Split manifest |
 | 7 | Dataset cards | Dataset card |
+
+Decision-system projects must additionally inventory class labels, hard
+negatives, disagreement cases, confidence-bearing predictions, and the frozen
+calibration and adversarial sets used to evaluate verifiers.
 
 ## Labs
 
@@ -73,4 +81,5 @@ To complete Level 4, the learner must submit:
 5. Quality metrics.
 6. Provenance documentation.
 7. A dataset card.
-
+8. For a learned verifier: separate training, calibration/threshold-selection,
+   and final held-out evaluation sets.

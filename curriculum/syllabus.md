@@ -4,7 +4,12 @@
 
 Applied AI Systems Engineering teaches engineers how to build AI systems that can use tools, complete realistic tasks, improve through systematic measurement, and make productive use of proprietary data.
 
-The course uses agents as the hands-on vehicle, but the broader goal is applied AI stack ownership: evals, traces, data pipelines, local model adaptation, workflow integration, simulation, and reinforcement learning.
+The course uses agents as the hands-on vehicle, but the broader goal is applied AI stack ownership: deterministic software, specialised decision systems, generative models, evals, verifiers, traces, data pipelines, workflow integration, simulation, and reinforcement learning.
+
+Two interlocking loops run through every level: a policy loop that chooses and
+executes actions, and a verification loop that turns code checks, classifier
+judgments, reasoning judges, and human review into decisions, data, and reward.
+See [intelligence-and-verification.md](intelligence-and-verification.md).
 
 The course has a four-level common core and advanced specialization tracks.
 
@@ -60,6 +65,7 @@ Give learners the minimum foundation needed to build and evaluate applied AI sys
 ### Topics
 
 - LLMs, tokens, context windows, and sampling
+- generative, discriminative, and deterministic computation
 - prompts, messages, and structured outputs
 - APIs, tools, and function calling
 - JSON schemas and validation
@@ -93,6 +99,7 @@ Build a reliable tool-using agent that interacts with realistic systems.
 - routing
 - human-in-the-loop approval
 - model selection
+- choosing between code, retrieval, classifiers, decision models, generative models, and humans
 
 ### Project
 
@@ -102,7 +109,7 @@ The StrongBench Expense Agent is the current executable seed. The canonical syst
 
 ### Exit Criteria
 
-The learner can build an agent that completes a multi-step expense task using at least three tools and produces a structured final answer.
+The learner can build an agent that completes a multi-step expense task using at least three tools, produces a structured final answer, and explains which intelligence primitive owns each major decision.
 
 ## Level 2: Evaluate
 
@@ -120,6 +127,9 @@ Teach learners how to know whether an agent is good.
 - LLM-as-judge
 - human review
 - precision, recall, F1, pass rate, pass@k
+- Brier score, log loss, calibration error, and reliability diagrams
+- risk-coverage curves, abstention, and escalation thresholds
+- verifier evaluation against human-reviewed labels
 - cost, latency, and reliability
 - contamination and leakage
 - statistical significance
@@ -127,11 +137,11 @@ Teach learners how to know whether an agent is good.
 
 ### Project
 
-Create a benchmark for StrongBench Expense Agent v1 with at least 100 tasks, multiple grader types, and a reproducible eval report.
+Create a benchmark for StrongBench Expense Agent v1 with at least 100 tasks, multiple grader types, a calibrated semantic verifier, and a reproducible eval report.
 
 ### Exit Criteria
 
-The learner can compare two agent versions and explain why they trust the measurement.
+The learner can compare two agent versions, choose an automation threshold on development data, and explain why they trust both the policy and its verifiers.
 
 ## Level 3: Production Eval Operations and Diagnose
 
@@ -156,6 +166,9 @@ Teach learners to operate the production quality loop around agents and explain 
 - state and memory bugs
 - ambiguous tasks
 - grader failures
+- decision false positives and false negatives
+- miscalibration, bad thresholds, and distribution shift
+- verifier false accepts, false rejects, and rubric failures
 - intervention design
 - experiment tracking
 
@@ -183,6 +196,9 @@ Turn failures, traces, and human corrections into high-quality datasets.
 - data contamination
 - synthetic data
 - preference pairs
+- classifier and verifier labels
+- hard negatives and disagreement cases
+- calibration and threshold-selection sets
 - trajectories
 - rejection sampling
 - quality scoring
@@ -201,7 +217,7 @@ The learner can convert messy agent behavior into a defensible dataset with prov
 
 ### Purpose
 
-Teach learners when model adaptation is justified and when prompting, retrieval, tooling, workflow design, or a frontier API is the better intervention.
+Teach learners when any learned component is justified and when deterministic code, prompting, retrieval, tooling, workflow design, a specialised decision model, or a frontier API is the better intervention.
 
 ### Topics
 
@@ -211,16 +227,18 @@ Teach learners when model adaptation is justified and when prompting, retrieval,
 - privacy and governance
 - cost and latency tradeoffs
 - model selection
+- intelligence primitive and cascade selection
+- accuracy, calibration, coverage, latency, and cost tradeoffs
 - benchmark gates
 - deployment constraints
 
 ### Project
 
-Create a model improvement decision memo using Level 2-4 evidence.
+Create an intelligence-system improvement decision memo using Level 2-4 evidence.
 
 ### Exit Criteria
 
-The learner can recommend a model strategy and defend it with evals, data quality evidence, cost estimates, and operational tradeoffs.
+The learner can recommend rules, a specialised model, a generative model, or a cascade and defend the choice with evals, calibration, data quality evidence, cost estimates, and operational tradeoffs.
 
 ## Level 5B: Post-training Implementation
 
@@ -300,6 +318,10 @@ Teach learners to build simulated worlds and verifiers where agents can practice
 - state verifiers
 - constraint verifiers
 - model-based verifiers
+- classifier and decision-model verifiers
+- verifier cascades and escalation
+- process vs outcome verification
+- verifier evaluation and versioning
 - rewards
 - reproducibility
 - sandboxing
@@ -325,9 +347,12 @@ Teach learners how agents can improve through experience, how verifier-derived r
 - policies
 - reward functions
 - verifier-derived rewards
+- dense semantic reward and verifier confidence
 - exploration and exploitation
 - policy gradients
 - reward hacking
+- verifier hacking and verifier distribution shift
+- uncertainty-aware reward design
 - RLHF
 - RLVR
 - PPO
@@ -352,6 +377,8 @@ By the end of the curriculum, learners should have a public portfolio containing
 - an eval harness
 - a benchmark dataset
 - grader implementations
+- a calibrated verifier and operating threshold
+- an intelligence primitive benchmark
 - an agent failure report
 - a curated training dataset
 - an optional fine-tuned adapter

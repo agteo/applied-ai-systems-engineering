@@ -6,6 +6,7 @@
 | [Lab 2: Deterministic Graders](lab-02-deterministic-graders.md) | Implement graders for the objective checks in your benchmark, with failure messages an engineer can act on. |
 | [Lab 3: Rubric Judge](lab-03-rubric-judge.md) | Build a rubric grader for answer quality, and measure whether it can be trusted. |
 | [Lab 4: Eval Report](lab-04-eval-report.md) | Turn benchmark results into a report someone can make a decision from, and make it regenerable. |
+| [Lab 5: Calibrated Verifier](lab-05-calibrated-verifier.md) | Measure probability quality and choose automation, escalation, and abstention thresholds without leaking the test set. |
 
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

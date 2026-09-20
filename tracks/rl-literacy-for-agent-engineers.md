@@ -29,6 +29,9 @@ improvement is real.
 - rollout generation
 - verifier-derived reward design
 - reward hacking review
+- learned-verifier evaluation and verifier hacking
+- process vs outcome reward separation
+- uncertainty-aware reward and escalation
 - held-out evaluation design
 - regression evaluation
 - learning curve interpretation
@@ -60,6 +63,8 @@ simulator, with no GPU:
 - rollout data with decomposed reward components
 - a reward hacking review that names at least one exploit the current verifiers
   do **not** catch, with the check you would add
+- a verifier audit with trusted-label false accepts, false rejects, and a frozen
+  adversarial slice
 - a training experiment design: baselines, task distribution, held-out split,
   and the decision rule that would make you reject the trained policy
 - a written critique of a training result you did not produce — what evidence is

@@ -21,6 +21,8 @@ By the end of this level, learners can:
 7. Form evidence-backed hypotheses.
 8. Design targeted interventions.
 9. Run experiments that confirm or reject those interventions.
+10. Diagnose decision systems and verifiers separately from the policy they
+    evaluate.
 
 ## Required Build
 
@@ -126,6 +128,23 @@ EVALUATION
   rubric_unclear
   expected_answer_wrong
   dataset_gap
+
+DECISION
+  schema
+  false_positive
+  false_negative
+  miscalibration
+  threshold
+  missing_context
+  distribution_shift
+
+VERIFIER
+  rubric
+  grounding
+  false_accept
+  false_reject
+  process_outcome_confusion
+  adversarial_susceptibility
 ```
 
 ## Module Plan
@@ -167,3 +186,5 @@ To complete Level 3, the learner must submit:
 6. At least three evidence-backed hypotheses.
 7. At least one tested intervention.
 8. A failure report with recommendations for Level 4 data work.
+9. When learned decision systems or verifiers are present, separate their
+   errors from policy errors and name the intervention owner.

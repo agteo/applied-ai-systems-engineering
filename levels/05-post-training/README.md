@@ -1,12 +1,16 @@
-# Level 5: Model Improvement, Post-training, and Local Inference
+# Level 5: Intelligence-System Improvement, Post-training, and Local Inference
 
 ## Goal
 
-Evaluate whether changing the model is justified, then optionally run a real post-training experiment or operate a local inference stack.
+Evaluate which system component should change, then optionally benchmark or
+train a specialised decision model, run a generative-model post-training
+experiment, or operate a local inference stack.
 
 Level 4 asked: what data could help the system improve?
 
-Level 5 asks: should we use that data to adapt a model, and if yes, can the adapted model beat the alternatives on the same benchmark? If the system uses local or open models, can it serve them reliably enough for an agent to depend on them?
+Level 5 asks: should we use that data to change rules, retrieval, a specialised
+decision model, a generative model, or the cascade between them? Can the chosen
+intervention beat the alternatives on the same benchmark and operate reliably?
 
 ## Track Split
 
@@ -14,7 +18,7 @@ Level 5 has three tracks:
 
 | Track | Required For | Outcome |
 | --- | --- | --- |
-| 5A Model Improvement Decisions | All learners continuing past Level 4 | Decide whether to use prompting, retrieval, tooling, frontier APIs, or local model adaptation. |
+| 5A Intelligence-System Improvement Decisions | All learners continuing past Level 4 | Decide whether to use rules, prompting, retrieval, tooling, specialised decision models, frontier APIs, or local model adaptation. |
 | 5B Post-training Implementation | Optional ML training track | Run SFT/LoRA with real compute and evaluate the adapted model. |
 | 5C Local Inference Operations | Optional serving and platform track | Deploy a local or open model behind a gateway with routing, fallback, and observability. |
 
@@ -35,6 +39,8 @@ By the end of this level, learners can:
 7. Interpret whether the model improvement is worth the operational tradeoff.
 8. Route agent traffic through a local inference gateway with health checks and fallback behavior.
 9. Measure local inference latency, throughput, error rate, and resource saturation.
+10. Compare intelligence primitives on quality, calibration, coverage, latency,
+    cost, privacy, and operability.
 
 ## Required Build
 
@@ -54,10 +60,11 @@ python3 -m model_improvement.strongbench.train_lora --dry-run
 ## Comparison
 
 ```text
-Base model
-Prompted baseline
-Frontier API baseline
+Rules / deterministic baseline
+Specialised classifier or decision model
+Structured-output generative model
 Fine-tuned or adapted model
+Hybrid cascade
         |
         v
 Same Level 2 benchmark
@@ -86,6 +93,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 3: LoRA Experiment](labs/lab-03-lora-experiment.md) | Run a small adapter experiment for Track 5B. |
 | [Lab 4: Model Comparison](labs/lab-04-model-comparison.md) | Compare systems on the Level 2 benchmark. |
 | [Lab 5: Gateway Failover Drill](labs/lab-05-gateway-failover-drill.md) | Route the agent through a gateway and verify fallback behavior. |
+| [Lab 6: Intelligence Primitive Benchmark](labs/lab-06-intelligence-primitive-benchmark.md) | Compare rules, specialised models, generative models, and cascades. |
 
 ## Projects
 
@@ -105,6 +113,8 @@ To complete Track 5A, the learner must submit:
 3. Data sufficiency assessment.
 4. Cost, latency, privacy, and deployment tradeoffs.
 5. A recommendation explaining whether to train, use a frontier API, improve retrieval, improve tools, or keep a hybrid stack.
+6. An intelligence-primitive comparison that reports calibration and coverage
+   where candidates expose probabilities.
 
 To complete Track 5B, the learner must additionally submit:
 

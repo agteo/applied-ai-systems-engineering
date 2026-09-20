@@ -28,6 +28,8 @@ By the end of this level, learners can:
 6. Produce a rigorous training experiment design.
 7. Evaluate any trained agent against the same benchmark used earlier.
 8. Analyze learning curves and failure modes after training.
+9. Evaluate verifier quality and test whether a policy can exploit learned
+   verifier assumptions.
 
 ## Required Build
 
@@ -62,6 +64,11 @@ Updated model or policy
 Benchmark and diagnosis
 ```
 
+The verifier is part of the learning system, not ground truth by definition.
+Training designs must distinguish deterministic reward components from learned
+semantic judgments, preserve component confidence, and audit the learned
+verifiers on frozen human-reviewed and adversarial sets.
+
 ## Module Plan
 
 Read the full lesson sequence in [lessons/README.md](lessons/README.md).
@@ -84,6 +91,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 2: Rollout Dataset](labs/lab-02-rollout-dataset.md) | Generate and filter environment rollouts. |
 | [Lab 3: Reward Hacking Review](labs/lab-03-reward-hacking-review.md) | Identify reward exploits before training. |
 | [Lab 4: RL Experiment Report](labs/lab-04-rl-experiment-report.md) | Report whether experience improved behavior. |
+| [Lab 5: RL Against a Flawed Verifier](labs/lab-05-flawed-verifier.md) | Find and repair a verifier exploit before trusting reward. |
 
 ## Project
 
@@ -105,6 +113,8 @@ To complete Level 7, the learner must submit, with no GPU:
    reject the trained policy.
 5. A written critique of a training result you did not produce: what evidence is
    missing, and what claim the evidence actually supports.
+6. A verifier audit separating agent improvement from increased success at
+   pleasing the verifier.
 
 Optional, and not required to complete the level: if you run training, add
 learning curves and training logs, evaluation against the Level 2 benchmark, and

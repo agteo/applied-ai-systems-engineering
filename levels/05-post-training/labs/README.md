@@ -7,6 +7,7 @@
 | [Lab 3: LoRA Experiment](lab-03-lora-experiment.md) | Configure a LoRA run, validate its inputs, and — if you have the hardware — run it and report it honestly. |
 | [Lab 4: Model Comparison](lab-04-model-comparison.md) | Compare candidates on evidence status, not on impressions, and produce a recommendation someone can act on. |
 | [Lab 5: Gateway Failover Drill](lab-05-gateway-failover-drill.md) | Design the serving layer for a locally hosted model, and rehearse the failure you have not thought about. |
+| [Lab 6: Intelligence Primitive Benchmark](lab-06-intelligence-primitive-benchmark.md) | Compare rules, specialised decision models, generative models, and a confidence-gated cascade on the same task. |
 
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

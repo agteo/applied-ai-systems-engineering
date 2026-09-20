@@ -82,6 +82,34 @@ The seam matters beyond cost. Because the model is injectable, so is a
 deliberately broken one, which is how the `weak-no-tool` control in Level 2
 exists. **Build the interface before you need the second implementation.**
 
+## Start With The Computation, Not The Model
+
+The harness does not need one model to own every decision. Before assigning a
+job to the main generative model, classify the computation:
+
+| Computation | First candidate |
+| --- | --- |
+| exact arithmetic or policy invariant | deterministic code |
+| record lookup | tool or query |
+| narrow semantic routing | classifier or decision model |
+| candidate ranking | reranker |
+| complex planning or explanation | generative reasoning model |
+| objective success check | deterministic verifier |
+| ambiguous semantic verification | reasoning verifier or human review |
+
+This repo begins with `ScriptedModel` and `AnthropicModel` because one interface
+makes the first loop easy to inspect. It is not an architectural claim that one
+model should calculate, route, judge, verify, and write in production.
+
+A Type 1 decision system such as a traditional classifier, encoder, reward
+model, safety model, or hosted system like Jev can return a constrained choice
+or score cheaply. A typed answer still can be wrong. Preserve the selected
+value, probability distribution where available, component version, and the
+question version in the trace so Level 2 can test calibration and thresholds.
+
+Read the provider-neutral architecture in
+[`curriculum/intelligence-and-verification.md`](../../../curriculum/intelligence-and-verification.md).
+
 ## What Makes This An Agent Rather Than A Script
 
 A fair objection to the scripted model: if the planner is deterministic code, is
@@ -127,6 +155,11 @@ labels **49 to 13**. Build accordingly.
 - **No step budget.** A stuck agent looks slow rather than failed.
 - **Assuming a better model fixes it.** 49 of 62 failure labels here are not
   about the model.
+- **Using the generative model for every computation.** Exact checks become
+  probabilistic, narrow decisions become expensive, and ownership becomes
+  ambiguous.
+- **Treating typed output as truth.** A constrained model cannot invent an
+  out-of-schema label, but it can confidently choose the wrong valid label.
 
 ## Exercise
 
@@ -174,3 +207,6 @@ explain why an invalid tool call should not end a run.
 - [`evals/operations/strongbench/taxonomy.md`](../../../evals/operations/strongbench/taxonomy.md)
   — the failure labels, three levels ahead. Reading them early tells you what
   the harness will be asked to make visible.
+- [TypeSafe: Introducing System One Models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
+  — one current hosted example of typed probabilistic decisions. Read it as a
+  provider case study, and treat its performance figures as claims to reproduce.

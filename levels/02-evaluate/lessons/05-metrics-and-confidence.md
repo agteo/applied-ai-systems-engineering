@@ -14,6 +14,39 @@ and that is exactly the number a team will spend a sprint chasing.
 The skill is to read every rate alongside its denominator, and to know roughly
 how much one task is worth on that denominator before deciding anything.
 
+There is a second meaning of confidence in a deployed decision system: the
+probability attached to an individual prediction. Statistical confidence tells
+you how uncertain *your benchmark estimate* is. Predictive confidence claims
+how likely *this decision* is to be correct. They are different quantities and
+both need evaluation.
+
+## Predictive Confidence Must Be Calibrated
+
+Suppose a router acts automatically whenever it reports confidence above 0.95.
+That threshold is defensible only if predictions near 0.95 are correct about
+95% of the time on representative data. Accuracy alone cannot establish this.
+
+Measure probability-bearing classifiers and decision models with:
+
+- **Brier score or log loss:** proper scoring rules that reward accurate
+  probabilities, not only winning labels.
+- **Reliability buckets:** average confidence against empirical accuracy within
+  confidence bands.
+- **Selective accuracy:** accuracy among cases the system chooses to answer.
+- **Risk-coverage curves:** how error changes as more cases are automated rather
+  than abstained or escalated.
+
+Choose thresholds on a development or calibration split, then freeze them
+before final held-out evaluation. An operational target should look like:
+
+```text
+Maximize automated coverage subject to precision >= 0.98 and zero observed
+false accepts on the protected unsafe-submission slice.
+```
+
+That is stronger than "use confidence > 0.95" because it states the outcome
+the number must buy.
+
 ## One Task Is Not One Percent
 
 The Level 2 report gives an aggregate and five slices:
@@ -121,6 +154,12 @@ read differently from slices.
   estimate.
 - **Adding tasks only to slices that already look good.** Precision goes where
   you spend cases, and the broken slice is where you need it.
+- **Confusing confidence intervals with model confidence.** One describes an
+  aggregate estimate; the other is a per-decision prediction.
+- **Selecting a threshold on the final test set.** The reported precision and
+  coverage are no longer held-out evidence.
+- **Reporting accuracy without calibration or coverage.** It does not show
+  whether confidence can safely control automation.
 
 ## Exercise
 
@@ -177,3 +216,6 @@ your benchmark are large enough to act on.
 - [`evals/strongbench_benchmark/thresholds.json`](../../../evals/strongbench_benchmark/thresholds.json)
   — a gate is a decision boundary, not an estimate. Notice that it is a single
   committed number, which is what makes crossing it unambiguous.
+- [RLCR: Beyond Binary Rewards](https://openreview.net/pdf?id=ASQ649zdHm)
+  — an example of using a proper scoring rule to reward calibrated confidence;
+  distinguish its training result from post-hoc threshold selection.
