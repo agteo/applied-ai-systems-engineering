@@ -95,6 +95,6 @@ These are real, and several are deliberate teaching material rather than bugs to
 - [Level 6: Environments](../../levels/06-environments/README.md)
 - [Level 7: Reinforcement Learning](../../levels/07-reinforcement-learning/README.md)
 
-For current executable coverage and limitations across all levels, see
-[project status](../../STATUS.md). The reference expense agent is a starting
+For current executable coverage and limitations across all levels, see the
+[syllabus](../../curriculum/syllabus.md). The reference expense agent is a starting
 point for the later evaluation, diagnosis, improvement and environment work.

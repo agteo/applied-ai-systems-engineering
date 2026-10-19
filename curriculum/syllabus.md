@@ -13,7 +13,7 @@ See [intelligence-and-verification.md](intelligence-and-verification.md).
 
 The course has a four-level common core and advanced specialization tracks.
 
-Current maturity: Levels 1–6 have executable reference material; Level 7 is an executable analysis track. Model training is optional; full post-training and RL training environments and completed reference runs are pending. Learners can use their own runtimes with the [L5 instructions](../model_improvement/strongbench/reference-training-run-plan.md) and [L7 instructions](../rl_reliability/strongbench/optional-training-run-plan.md). See [project status](../STATUS.md) for scope and limitations.
+Current maturity: Levels 1–6 have executable reference material; Level 7 is an executable analysis track. Model training is optional; full post-training and RL training environments and completed reference runs are pending. Learners can use their own runtimes with the [L5 instructions](../model_improvement/strongbench/reference-training-run-plan.md) and [L7 instructions](../rl_reliability/strongbench/optional-training-run-plan.md).
 
 The conceptual backbone for the course is documented in [mental-models.md](mental-models.md). Learners should revisit those mental models before each level.
 
