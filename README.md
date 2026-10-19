@@ -136,7 +136,7 @@ tracks.
 | **1** | [Build](levels/01-build/README.md) | Build a tool-using agent that completes a multi-step business task. |
 | **2** | [Evaluate](levels/02-evaluate/README.md) | Create reproducible evals, graders, and benchmark reports. |
 | **3** | [Diagnose & Eval Ops](levels/03-diagnose/README.md) | Turn traces into failure datasets, regression checks, release gates, and evidence-backed failure analysis. |
-| **4** | [Data and Feedback](levels/04-data/README.md) | Turn traces, failures, and human corrections into defensible datasets. |
+| **4** | [Agent Improvement Systems](levels/04-data/README.md) | Select and test interventions; curate defensible improvement datasets. |
 | **5A** | [Model Improvement Decisions](levels/05-post-training/README.md) | Decide whether prompting, retrieval, tooling, frontier APIs, or local model adaptation is the right intervention. |
 | **5B** | [Post-training Implementation](levels/05-post-training/README.md) | Run GPU-backed SFT/LoRA experiments and compare adapted local models. |
 | **5C** | [Local Inference Operations](levels/05-post-training/README.md) | Deploy local or open models behind a gateway with routing, fallback, and observability. |

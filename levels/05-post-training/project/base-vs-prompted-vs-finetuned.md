@@ -4,7 +4,7 @@
 
 Compare whether post-training improves StrongBench Expense Agent behavior enough to justify adoption.
 
-This project completes Track 5B. Learners who only complete a model strategy memo have completed Track 5A, not post-training implementation.
+This project completes Track 5B. Learners who only complete a model strategy memo have completed Track 5A, not post-training implementation. The full training environment and reference run are pending; learners supply their own runtime and follow the [run instructions](../../../model_improvement/strongbench/reference-training-run-plan.md).
 
 ## Required Systems
 

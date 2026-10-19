@@ -9,4 +9,4 @@ Read these lessons in order:
 5. [Preference and Correction Data](05-preference-and-correction-data.md)
 6. [Splits and Contamination](06-splits-and-contamination.md)
 7. [Dataset Cards](07-dataset-cards.md)
-
+8. [Agent Improvement Systems](08-agent-improvement-systems.md)

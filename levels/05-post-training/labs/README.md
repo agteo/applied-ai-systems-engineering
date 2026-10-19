@@ -8,5 +8,7 @@
 | [Lab 4: Model Comparison](lab-04-model-comparison.md) | Compare candidates on evidence status, not on impressions, and produce a recommendation someone can act on. |
 | [Lab 5: Gateway Failover Drill](lab-05-gateway-failover-drill.md) | Design the serving layer for a locally hosted model, and rehearse the failure you have not thought about. |
 
+| [Lab 6: Distillation Experiment](lab-06-distillation-experiment.md) | Audit failure-derived examples and plan a budgeted comparison. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

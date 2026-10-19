@@ -8,5 +8,7 @@
 | [Lab 4: Trace Capture](lab-04-trace-capture.md) | Capture trajectories that later levels can evaluate and diagnose. |
 | [Lab 5: Intelligence Primitive Benchmark](lab-05-intelligence-primitive-benchmark.md) | Choose which component owns a decision by measuring rules, a classifier, a generative model, and a cascade on the same contract. |
 
+| [Lab 6: Harness Portability](lab-06-harness-portability.md) | Compare adapters while checking stable tool, permission, state, and trace boundaries. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

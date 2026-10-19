@@ -7,5 +7,7 @@
 | [Lab 3: Synthetic Examples](lab-03-synthetic-examples.md) | Generate examples that fill a gap you identified, and build the evaluation that would tell you whether the model learned the capability or the template. |
 | [Lab 4: Dataset Card](lab-04-dataset-card.md) | Write the document that lets someone decide **not** to use your dataset. |
 
+| [Lab 5: Intervention Selection](lab-05-intervention-selection.md) | Choose and test an intervention under safety, cost and latency constraints. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

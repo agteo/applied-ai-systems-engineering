@@ -23,6 +23,8 @@ By the end of this level, learners can:
 9. Run experiments that confirm or reject those interventions.
 10. Diagnose decision systems and verifiers separately from the policy they
     evaluate.
+11. Defend a ship, restrict, or delay decision using release evidence, risk,
+    monitoring, incident response, and rollback criteria.
 
 ## Required Build
 
@@ -45,7 +47,7 @@ Regression pack
     v
 Release gate
     |
-    +------ PASS -> deploy
+    +------ PASS -> release review (not automatic deployment)
     |
     +------ FAIL
              |
@@ -79,6 +81,12 @@ Experiment
     v
 Result
 ```
+
+A gate is one input to a release decision. Shadow evaluation, phased rollout,
+monitoring and rollback address risks that an offline benchmark cannot settle.
+Record observation → evidence → hypothesis → intervention → experiment → result,
+and distinguish a missing observation from evidence that a failure did not occur.
+See [Lab 5](labs/lab-05-release-assurance.md).
 
 ## Core Taxonomy
 
@@ -169,6 +177,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 2: Failure Taxonomy](labs/lab-02-failure-taxonomy.md) | Create a taxonomy and label set. |
 | [Lab 3: Intervention Experiment](labs/lab-03-intervention-experiment.md) | Test a targeted fix against the benchmark. |
 | [Lab 4: Failure Report](labs/lab-04-failure-report.md) | Write an evidence-backed diagnostic report. |
+| [Lab 5: Release Assurance](labs/lab-05-release-assurance.md) | Defend a release decision with incomplete evidence. |
 
 ## Project
 
@@ -188,3 +197,5 @@ To complete Level 3, the learner must submit:
 8. A failure report with recommendations for Level 4 data work.
 9. When learned decision systems or verifiers are present, separate their
    errors from policy errors and name the intervention owner.
+10. A release decision with evidence gaps, shadow or staged rollout conditions,
+    monitoring, incident ownership, and rollback triggers.

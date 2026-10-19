@@ -7,5 +7,8 @@
 | [Lab 3: Task Generator](lab-03-task-generator.md) | Generate many *distinct* tasks, and be able to prove they are distinct. |
 | [Lab 4: Reward Function](lab-04-reward-function.md) | Build a reward that is derived from named verifier checks, and prove it discriminates by writing a policy that tries to cheat it. |
 
+| [Lab 5: Reset and Isolation](lab-05-reset-and-isolation.md) | Check sequential and concurrent state isolation and specify a sandbox boundary. |
+| [Lab 6: Verifier Validation](lab-06-verifier-validation.md) | Measure labeled and adversarial verifier behavior and compare task difficulty. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

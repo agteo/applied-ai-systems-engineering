@@ -79,3 +79,7 @@ baseline eval, training logs, reward-component curves, held-out simulator eval,
 a Level 2 benchmark regression check, and a sampled rollout review. See
 [`integrations/prime-intellect/reports/template.md`](../integrations/prime-intellect/reports/template.md)
 and [`VALIDATION.md`](../integrations/prime-intellect/VALIDATION.md).
+
+Training infrastructure, reward validity and bounded experiments are covered in
+[Lesson 8](../levels/07-reinforcement-learning/lessons/08-training-infrastructure-and-validity.md).
+A real training run remains optional and is not supplied.

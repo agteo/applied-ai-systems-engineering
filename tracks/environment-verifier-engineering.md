@@ -32,7 +32,9 @@ the consequential residue.
 - state modeling
 - action and observation schemas
 - simulated tools
-- sandboxing
+- reset contracts and episode isolation
+- sandbox and network boundary testing
+- difficulty calibration across policies
 - deterministic checks
 - state and constraint verification
 - reward component design

@@ -8,5 +8,7 @@
 | [Lab 4: RL Experiment Report](lab-04-rl-experiment-report.md) | Write the report and the decision rule **before** any run, so a disappointing result can be published. |
 | [Lab 5: RL Against a Flawed Verifier](lab-05-flawed-verifier.md) | Demonstrate a verifier exploit, repair the stack, and retest it on a frozen adversarial set. |
 
+| [Lab 6: Training Validity](lab-06-training-validity.md) | Review an illustrative reward/result divergence and plan a bounded run. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

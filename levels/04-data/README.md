@@ -1,12 +1,13 @@
-# Level 4: Data and Feedback
+# Level 4: Agent Improvement Systems
 
 ## Goal
 
-Turn agent traces, failures, human corrections, and synthetic examples into a defensible dataset for improvement.
+Select, test, and operationalize an intervention using failure evidence and constraints. Turn agent traces, failures, human corrections, and synthetic examples into a defensible dataset when data can support improvement.
 
 Level 3 asked: why did the agent fail?
 
-Level 4 asks: what data would help it improve?
+Level 4 asks: which intervention should we try, what evidence would justify it,
+and what data would support this or a later improvement cycle?
 
 ## Learning Outcomes
 
@@ -21,6 +22,18 @@ By the end of this level, learners can:
 7. Publish a dataset card.
 8. Build classifier, verifier, calibration, and adversarial datasets without
    contaminating final evaluation.
+9. Compare prompt, tool, retrieval, harness, routing, data, model and human
+   workflow interventions against evidence, risk, cost and latency.
+10. Test a targeted change against a baseline and defend a release decision.
+
+## Improvement Loop
+
+Use the Level 3 evidence to compare candidate interventions, choose an owner and
+one testable change, freeze a baseline and evaluation, run the comparison, inspect
+regressions and costs, then decide whether to ship, restrict, delay or gather more
+evidence. Data work remains essential where examples, labels or verifier coverage
+are the constraint. See [the improvement lesson](lessons/08-agent-improvement-systems.md)
+and [Lab 5](labs/lab-05-intervention-selection.md).
 
 ## Pipeline
 
@@ -52,6 +65,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 5 | Preference and correction data | Preference pairs |
 | 6 | Splits and contamination | Split manifest |
 | 7 | Dataset cards | Dataset card |
+| 8 | Agent improvement systems | Intervention decision and experiment |
 
 Decision-system projects must additionally inventory class labels, hard
 negatives, disagreement cases, confidence-bearing predictions, and the frozen
@@ -65,10 +79,11 @@ calibration and adversarial sets used to evaluate verifiers.
 | [Lab 2: Cleaning Filters](labs/lab-02-cleaning-filters.md) | Deduplicate and filter low-quality rows. |
 | [Lab 3: Synthetic Examples](labs/lab-03-synthetic-examples.md) | Generate examples from diagnosed failures. |
 | [Lab 4: Dataset Card](labs/lab-04-dataset-card.md) | Document the dataset for future training. |
+| [Lab 5: Intervention Selection](labs/lab-05-intervention-selection.md) | Compare and test improvement options under constraints. |
 
 ## Project
 
-The Level 4 project is [Agent Training Dataset v1](project/agent-training-dataset-v1.md).
+The Level 4 project combines [Agent Training Dataset v1](project/agent-training-dataset-v1.md) with the intervention decision and experiment in [Lab 5](labs/lab-05-intervention-selection.md).
 
 ## Exit Criteria
 
@@ -83,3 +98,5 @@ To complete Level 4, the learner must submit:
 7. A dataset card.
 8. For a learned verifier: separate training, calibration/threshold-selection,
    and final held-out evaluation sets.
+9. An intervention comparison, reproducible experiment and release recommendation
+   with cost, latency, safety, uncertainty and follow-up evidence.

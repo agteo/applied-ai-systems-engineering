@@ -32,7 +32,7 @@ those actions and turn outcomes into release decisions, data, and reward. See
                           and Failure Analysis
                                      |
                                      v
-                              L4 Data and Feedback
+                              L4 Agent Improvement Systems
                                      |
                 +--------------------+--------------------+
                 |                    |                    |
@@ -46,7 +46,7 @@ those actions and turn outcomes into release decisions, data, and reward. See
                                       |              |  for Reliability
 ```
 
-Levels 1-4 are the core. They are mandatory because every applied AI engineer needs to know how to build a workflow-connected AI system, evaluate it, diagnose it, and convert behavior into usable data.
+Levels 1-4 are the core. They are mandatory because every applied AI engineer needs to know how to build a workflow-connected AI system, evaluate it, diagnose it, choose and test improvements, and convert behavior into usable data.
 
 Levels 5-7 are specializations. They matter deeply, but not every practitioner needs to become a model training, inference platform, environment, or RL engineer. Learners who continue into these levels learn how to adapt open models, operate local inference stacks, build proprietary improvement loops, design verifiers, create simulated environments, and reason about owning more of the AI stack.
 
@@ -87,7 +87,7 @@ Each level produces artifacts that become inputs to later levels.
 | L1 Build | Agent harness, tool schemas, traces | L2 eval cases and graders |
 | L2 Evaluate | Benchmark dataset, grader outputs, eval report | L3 failure analysis |
 | L3 Production Eval Operations and Diagnose | Failure taxonomy, annotated trajectories, regression packs, release gates, interventions | L4 data generation |
-| L4 Data | Curated proprietary-style dataset, dataset card, quality metrics | L5 post-training |
+| L4 Improvement | Intervention experiment, release decision, curated dataset and dataset card | L2 regression, L5 post-training |
 | L5 Post-training | Local model adapter, model comparison report | L2 regression benchmark |
 | L5 Local Inference | Gateway configuration, resilience report, serving metrics | L2 regression benchmark and production readiness review |
 | L6 Environments and Verifiers | Simulated domain, tasks, deterministic/state/constraint verifiers, reward functions | L7 rollouts |
@@ -105,7 +105,7 @@ The agent is a scaffold, not the ceiling. The canonical system may expand into a
 
 The final domain should remain contingent on where companies are actually deploying agents and where reliability can be evaluated with hard verifiers. See [canonical-system-strategy.md](canonical-system-strategy.md).
 
-By the end of the curriculum, the learner has built the surrounding improvement system: evals, traces, datasets, adapted local models, local inference stack, simulator, verifiers, rewards, and training loop.
+The common core develops the surrounding improvement system: evals, traces, interventions, release decisions and datasets. Optional tracks extend this to adapted models, local inference, simulators, verifiers, rewards and RL analysis; a completed training run is not supplied.
 
 ## Design Principles
 

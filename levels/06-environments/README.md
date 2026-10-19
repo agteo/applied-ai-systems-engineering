@@ -4,8 +4,7 @@
 
 Build simulated environments and verifiers where agents can practice safely, produce measurable outcomes, and generate trajectories for evaluation or training.
 
-Level 5 asked: should we adapt the model?
-
+After the common core, learners can take Level 6 independently of Level 5.
 Level 6 asks: can we create a world where the agent can act, fail, recover, and be scored?
 
 ## Learning Outcomes
@@ -22,6 +21,10 @@ By the end of this level, learners can:
 8. Produce rollouts that can feed Level 7 reinforcement learning.
 9. Build a tiered verifier cascade and evaluate each learned verifier against
    trusted labels.
+10. Test reset and episode isolation, specify execution boundaries, and distinguish
+    a simulator from a sandbox.
+11. Validate verifiers on labeled and adversarial cases and compare difficulty
+    labels with policy-relative results.
 
 ## Required Build
 
@@ -108,6 +111,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 5 | Verifiers, rewards, and success checks | Verifier and reward function |
 | 6 | Reproducibility and realism | Environment manifest |
 | 7 | Rollout analysis | Rollout dataset |
+| 8 | Isolation and verifier validation | Reset tests and verifier audit |
 
 ## Labs
 
@@ -117,6 +121,8 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 2: Simulated Tools](labs/lab-02-simulated-tools.md) | Build safe simulated tools. |
 | [Lab 3: Task Generator](labs/lab-03-task-generator.md) | Generate tasks with expected outcomes. |
 | [Lab 4: Reward Function](labs/lab-04-reward-function.md) | Score agent behavior automatically from verifier components. |
+| [Lab 5: Reset and Isolation](labs/lab-05-reset-and-isolation.md) | Test episode isolation and specify execution boundaries. |
+| [Lab 6: Verifier Validation](labs/lab-06-verifier-validation.md) | Audit labeled and adversarial cases and difficulty. |
 
 ## Project
 
@@ -136,3 +142,5 @@ To complete Level 6, the learner must submit:
 7. A realism and simulator-bias note.
 8. A verifier report covering trusted-label agreement, false accepts, false
    rejects, escalation behavior, and known blind spots.
+9. Reset and isolation tests, a sandbox boundary plan with evidence status,
+   adversarial verifier cases, and a policy-relative difficulty comparison.

@@ -6,7 +6,7 @@ Evaluate which system component should change, then optionally benchmark or
 train a specialised decision model, run a generative-model post-training
 experiment, or operate a local inference stack.
 
-Level 4 asked: what data could help the system improve?
+Level 4 asked: which system intervention should we test, and what data could support it?
 
 Level 5 asks: should we use that data to change rules, retrieval, a specialised
 decision model, a generative model, or the cascade between them? Can the chosen
@@ -22,7 +22,7 @@ Level 5 has three tracks:
 | 5B Post-training Implementation | Optional ML training track | Run SFT/LoRA with real compute and evaluate the adapted model. |
 | 5C Local Inference Operations | Optional serving and platform track | Deploy a local or open model behind a gateway with routing, fallback, and observability. |
 
-Completing Track 5A does not mean the learner has trained a model. Completing Track 5B requires an actual training run, a produced artifact, and benchmark comparison.
+Completing Track 5A does not mean the learner has trained a model. Completing Track 5B requires an actual training run, a produced artifact, and benchmark comparison. The full training environment and reference run are pending; learners who train provide their own runtime. See the [instructions and reproducibility requirements](../../model_improvement/strongbench/reference-training-run-plan.md).
 
 Completing Track 5C does not require training a model. It requires a working serving stack and a resilience report showing how the agent behaves when local inference is unavailable.
 
@@ -41,6 +41,8 @@ By the end of this level, learners can:
 9. Measure local inference latency, throughput, error rate, and resource saturation.
 10. Compare intelligence primitives on quality, calibration, coverage, latency,
     cost, privacy, and operability.
+11. Trace failures through teacher-generated corrections, provenance checks,
+    distillation and a protected comparison; budget experiments before runs.
 
 ## Required Build
 
@@ -83,6 +85,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 5 | Preference optimization | DPO concept plan |
 | 6 | Evaluation after training | Comparison report |
 | 7 | Local inference operations | Resilient serving plan |
+| 8 | Distillation and budgeted experiments | Data and experiment plan |
 
 ## Labs
 
@@ -93,6 +96,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 3: LoRA Experiment](labs/lab-03-lora-experiment.md) | Run a small adapter experiment for Track 5B. |
 | [Lab 4: Model Comparison](labs/lab-04-model-comparison.md) | Compare systems on the Level 2 benchmark. |
 | [Lab 5: Gateway Failover Drill](labs/lab-05-gateway-failover-drill.md) | Route the agent through a gateway and verify fallback behavior. |
+| [Lab 6: Distillation Experiment](labs/lab-06-distillation-experiment.md) | Audit failure-derived examples and plan a bounded comparison. |
 
 ## Projects
 
@@ -114,6 +118,8 @@ To complete Track 5A, the learner must submit:
 5. A recommendation explaining whether to train, use a frontier API, improve retrieval, improve tools, or keep a hybrid stack.
 6. An intelligence-primitive comparison that reports calibration and coverage
    where candidates expose probabilities.
+7. A failure-to-distillation data audit and budgeted experiment plan, with
+   unrun candidates clearly marked pending.
 
 To complete Track 5B, the learner must additionally submit:
 
@@ -123,6 +129,8 @@ To complete Track 5B, the learner must additionally submit:
 4. Adapter or checkpoint artifact.
 5. Evaluation results on the Level 2 benchmark.
 6. A comparison report.
+7. Provenance, licensing, actual compute use, held-out comparisons, and
+   predeclared safety and adoption criteria.
 
 To complete Track 5C, the learner must additionally submit:
 

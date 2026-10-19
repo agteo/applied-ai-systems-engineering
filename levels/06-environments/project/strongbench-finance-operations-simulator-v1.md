@@ -61,3 +61,7 @@ The expanded finance operations slice should add:
 - [ ] Reward function documented as a composition of verifier outputs.
 - [ ] Rollout format documented.
 - [ ] Simulator bias note included.
+- [ ] Reset and sequential/concurrent episode isolation tested.
+- [ ] Execution boundary documented, with tested and untested controls distinguished.
+- [ ] Verifiers assessed against labeled and adversarial cases; difficulty compared
+      across policies with sample limitations.

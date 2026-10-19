@@ -48,13 +48,13 @@ is a build you can run. "Before the fix" is not a control if nobody can
 reproduce it.
 
 **The measurement is the existing graders**, chosen before the run and shared
-between both arms. Using the same deterministic graders is what makes 0 and 89
-comparable at all — a new grader written for the intervention would have made
-the comparison meaningless.
+between both arms. Using the same deterministic graders is necessary for a meaningful comparison,
+but does not make these unmatched task sets directly comparable. A new grader
+written for only one arm would add another confound.
 
-**One thing changes.** Tool use. Not tool use plus a prompt revision plus a
-model swap, which is the shape most real experiments drift into and the reason
-most of them cannot be interpreted.
+**The intended intervention is tool use**, but inspect both implementations before
+claiming that this is the only difference. If other behavior also changes, the
+result cannot isolate the causal contribution of tool use.
 
 ## The Interpretation Is The Skilled Part
 
@@ -69,10 +69,11 @@ Two sentences, and the second is the one worth copying. A result establishes
 something narrow, and the pressure after a good number is always to let it
 establish something broader.
 
-Here the honest reading is: tool grounding is *necessary*. The experiment shows
-that removing tools destroys performance — 0 out of 30. It does not show tools
-are *sufficient*, because the intervention arm still fails 11 tasks. Necessity
-and sufficiency are different claims and this design can only speak to one.
+The 0/30 result describes this particular weak no-tool baseline on those 30
+tasks. It does not establish that tool grounding is universally necessary, or
+that it alone caused the difference: the two arms use different task counts and
+may differ in more than tool availability. Nor do the failures of the scripted
+agent show that tool use alone is sufficient for production readiness.
 
 Write the "does not prove" sentence for every experiment. If you cannot think of
 one, you have not understood what you measured.
@@ -144,9 +145,8 @@ and [`regression-pack.jsonl`](../../../evals/operations/strongbench/regression-p
 
 1. The control scored 0/30 and the intervention 89/100. Why are those two
    numbers not directly comparable, and what would you run to make them so?
-2. The interpretation says the result does not prove production readiness.
-   State precisely what it *does* establish, using the words necessary and
-   sufficient.
+2. The artifact claims tool grounding is necessary. Explain what the observed
+   results actually establish and why that stronger claim is not supported.
 3. Every regression row carries `source_annotation_id`. Give the concrete
    scenario, a year from now, where that field saves an afternoon.
 
@@ -157,14 +157,12 @@ Check your answer:
    0/30 and 89/100 are both real but they are not a like-for-like comparison —
    the control's slice may be easier or harder than the full set. To compare,
    run the control on all 100 tasks, or the intervention on the same first 30.
-   Either fixes it; the current pairing supports "removing tools is
-   catastrophic" but not a precise effect size.
+   Either allows a matched-task comparison; isolate other differences before
+   attributing the result to tools.
 
-2. It establishes that tool grounding is necessary: with tools removed, the
-   agent scores zero, so no part of the benchmark is passable without them. It
-   does not establish sufficiency — the intervention arm still fails 11 of 100
-   tasks, so tools alone do not produce a correct agent. The design can only
-   speak to necessity because it removed a capability rather than adding one.
+2. It establishes only the observed scores for these configurations and task
+   sets. It does not establish universal necessity or sufficiency of tools, or a
+   causal effect size. Compare matched tasks and isolate the intervention first.
 
 3. A regression case starts failing after an unrelated refactor. Without the
    field, someone re-derives from scratch what the case was testing and why

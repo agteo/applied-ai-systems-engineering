@@ -22,6 +22,9 @@ By the end of this level, learners can:
 8. Measure calibration and choose confidence thresholds for automation,
    escalation, or abstention.
 9. Evaluate verifier false accepts and false rejects against trusted labels.
+10. Design paired comparisons, report uncertainty and evaluator limitations, and
+    interpret representative public benchmarks and their versions.
+11. Distinguish final outcome, observed actions, and resulting environment state.
 
 ## Required Build
 
@@ -83,6 +86,27 @@ The main Level 2 metrics are:
 - automation coverage at a required precision or safety level
 - verifier false-accept and false-reject rates
 
+### Experiment Design and Benchmark Literacy
+
+Specify the hypothesis, baseline, intervention, task sampling, metric and decision
+rule before comparing agents. Run both versions on the same tasks and report the
+paired changes, sample sizes and uncertainty. Protect held-out data from tuning,
+check judge bias, and report critical slices separately. A fixed benchmark may not
+represent deployment traffic, and small slices cannot establish low failure rates.
+
+Public benchmarks such as BFCL, τ-bench, GAIA, SWE-bench and IFEval measure
+different task families. Record the version, harness and scoring protocol before
+interpreting a score; use custom workflow evaluations for local requirements.
+See [Lab 6](labs/lab-06-paired-process-evaluation.md).
+
+### Outcomes, Actions, and State
+
+Check what the agent answered, what its trace shows it did, and what state it
+left behind. A correct answer can coexist with an unauthorized action or a damaged
+record. A trace alone cannot prove the resulting state; a state snapshot alone
+cannot prove no forbidden action occurred. When the environment does not expose
+the evidence needed, report the check as unavailable rather than passing it.
+
 ### Regression
 
 An eval should be reusable. If a prompt, model, tool, or retrieval change improves one area while damaging another, the benchmark should make that visible.
@@ -110,6 +134,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 3: Rubric Judge](labs/lab-03-rubric-judge.md) | Build and calibrate an LLM judge. |
 | [Lab 4: Eval Report](labs/lab-04-eval-report.md) | Turn scores into an engineering recommendation. |
 | [Lab 5: Calibrated Verifier](labs/lab-05-calibrated-verifier.md) | Evaluate probabilities and choose an automation threshold. |
+| [Lab 6: Paired and Process Evaluation](labs/lab-06-paired-process-evaluation.md) | Compare versions and evaluate outcomes, actions, and state. |
 
 ## Project
 
@@ -127,12 +152,11 @@ To complete Level 2, the learner must submit:
 6. A benchmark report comparing at least two agent configurations.
 7. A short note explaining what the benchmark does not measure.
 8. A calibrated-verifier report with a threshold selected on development data.
+9. A paired comparison and a process/state evaluation with stated evidence limits.
+10. A comparison of two public benchmarks and their applicability to the task.
 
-The learner should be able to say:
-
-```text
-Agent version B improved task success from 64% to 76%, mostly by reducing
-policy citation failures. I trust this because deterministic graders cover
-structured correctness, the LLM judge agrees with human review on 84% of
-sampled cases, and the confidence interval does not overlap the previous run.
-```
+The learner should be able to explain whether an observed improvement supports
+a decision, including the paired task results, uncertainty, safety slices,
+evaluator limitations and what the benchmark does not measure. A difference in
+two separate confidence intervals is not a substitute for analyzing the paired
+difference.

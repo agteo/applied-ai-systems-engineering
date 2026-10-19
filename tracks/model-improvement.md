@@ -13,6 +13,8 @@ This track includes post-training, but it should not treat training as the defau
 - data sufficiency assessment
 - training/test split discipline
 - contamination checks
+- failure-to-training provenance and distillation
+- experiment and compute budgets
 - SFT data preparation
 - preference data design
 - LoRA and QLoRA experiments

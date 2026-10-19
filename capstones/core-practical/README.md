@@ -11,7 +11,7 @@ It should be executable without a GPU.
 Improve a flawed StrongBench Expense Agent using the core loop:
 
 ```text
-Build -> Evaluate -> Diagnose -> Data Recommendation
+Build -> Evaluate -> Diagnose -> Improve -> Release Decision
 ```
 
 ## Scenario
@@ -34,7 +34,10 @@ Your job is to identify one meaningful failure mode, make a targeted improvement
 4. Implement one targeted fix.
 5. Rerun the benchmark.
 6. Compare before and after results.
-7. Write a diagnosis and recommendation memo.
+7. Compare paired task outcomes, inspect safety slices and report cost and latency
+   where available; disclose missing measurements and limited sample sizes.
+8. Write a diagnosis and ship, restrict, or delay recommendation with monitoring,
+   human escalation, and rollback criteria.
 
 ## Required Artifacts
 
@@ -43,7 +46,8 @@ Your job is to identify one meaningful failure mode, make a targeted improvement
 - trace samples
 - failure diagnosis
 - intervention explanation
-- data recommendation for the next improvement cycle
+- intervention alternatives and data recommendation for the next improvement cycle
+- release decision, evidence gaps, monitoring, and rollback criteria
 - portfolio writeup using [`templates/portfolio-writeup.md`](../../templates/portfolio-writeup.md)
 
 ## Differentiation Requirement

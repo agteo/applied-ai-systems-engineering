@@ -14,7 +14,10 @@ Level 7 is a literacy track. It has an executable local analysis path over the
 StrongBench Finance Operations Simulator, and it does **not** train anything. Running
 RL training is an optional advanced implementation path, not a completion
 requirement, and this level does not prepare a learner for an RL engineering
-role. See [tracks/rl-literacy-for-agent-engineers.md](../../tracks/rl-literacy-for-agent-engineers.md).
+role. A full RL training environment and reference run are pending; learners may
+analyze an authorized external case study or provide their own runtime using the
+[instructions and reproducibility requirements](../../rl_reliability/strongbench/optional-training-run-plan.md).
+See [tracks/rl-literacy-for-agent-engineers.md](../../tracks/rl-literacy-for-agent-engineers.md).
 
 ## Learning Outcomes
 
@@ -30,6 +33,8 @@ By the end of this level, learners can:
 8. Analyze learning curves and failure modes after training.
 9. Evaluate verifier quality and test whether a policy can exploit learned
    verifier assumptions.
+10. Describe rollout workers, checkpoints, retries, resource accounting and
+    independent evaluation, and design a bounded optional training run.
 
 ## Required Build
 
@@ -82,6 +87,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | 5 | PPO, GRPO, and hosted RL adapters | Training plan |
 | 6 | Training experiments | Experiment record |
 | 7 | Post-RL evaluation | Final comparison report |
+| 8 | Training infrastructure and validity | Bounded experiment and evaluation plan |
 
 ## Labs
 
@@ -92,6 +98,7 @@ Read the full lesson sequence in [lessons/README.md](lessons/README.md).
 | [Lab 3: Reward Hacking Review](labs/lab-03-reward-hacking-review.md) | Identify reward exploits before training. |
 | [Lab 4: RL Experiment Report](labs/lab-04-rl-experiment-report.md) | Report whether experience improved behavior. |
 | [Lab 5: RL Against a Flawed Verifier](labs/lab-05-flawed-verifier.md) | Find and repair a verifier exploit before trusting reward. |
+| [Lab 6: Training Validity](labs/lab-06-training-validity.md) | Assess reward, independent outcomes and a bounded run plan. |
 
 ## Project
 
@@ -115,6 +122,8 @@ To complete Level 7, the learner must submit, with no GPU:
    missing, and what claim the evidence actually supports.
 6. A verifier audit separating agent improvement from increased success at
    pleasing the verifier.
+7. A training infrastructure and reward-validity review with a bounded optional
+   experiment plan; illustrative results must be labeled as such.
 
 Optional, and not required to complete the level: if you run training, add
 learning curves and training logs, evaluation against the Level 2 benchmark, and

@@ -9,4 +9,4 @@ Read these lessons in order:
 5. [PPO and GRPO](05-ppo-and-grpo.md)
 6. [Training Experiments](06-training-experiments.md)
 7. [Post-RL Evaluation](07-post-rl-evaluation.md)
-
+8. [Training Infrastructure and Reward Validity](08-training-infrastructure-and-validity.md)

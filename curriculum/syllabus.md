@@ -13,7 +13,7 @@ See [intelligence-and-verification.md](intelligence-and-verification.md).
 
 The course has a four-level common core and advanced specialization tracks.
 
-Current maturity note: this repository is still a curriculum specification. The target executable release is Levels 1-2 first, then Levels 3-4, then optional model-training and RL tracks.
+Current maturity: Levels 1–6 have executable reference material; Level 7 is an executable analysis track. Model training is optional; full post-training and RL training environments and completed reference runs are pending. Learners can use their own runtimes with the [L5 instructions](../model_improvement/strongbench/reference-training-run-plan.md) and [L7 instructions](../rl_reliability/strongbench/optional-training-run-plan.md). See [project status](../STATUS.md) for scope and limitations.
 
 The conceptual backbone for the course is documented in [mental-models.md](mental-models.md). Learners should revisit those mental models before each level.
 
@@ -89,7 +89,9 @@ Build a reliable tool-using agent that interacts with realistic systems.
 ### Topics
 
 - LLM vs agent
-- agent harnesses
+- agent harnesses: context assembly, compaction, memory lifecycle, and state
+- tool permissions, execution boundaries, reusable instructions, and approval
+- model adapters, routing, and escalation
 - system prompts and instructions
 - structured outputs
 - tool calling
@@ -109,7 +111,7 @@ The StrongBench Expense Agent is the current executable seed. The canonical syst
 
 ### Exit Criteria
 
-The learner can build an agent that completes a multi-step expense task using at least three tools, produces a structured final answer, and explains which intelligence primitive owns each major decision.
+The learner can build an agent that completes a multi-step expense task using at least three tools, produces a structured final answer, and explains which intelligence primitive owns each major decision. They can compare two model adapters under the same harness contracts and test permissions and trace capture.
 
 ## Level 2: Evaluate
 
@@ -132,7 +134,9 @@ Teach learners how to know whether an agent is good.
 - verifier evaluation against human-reviewed labels
 - cost, latency, and reliability
 - contamination and leakage
-- statistical significance
+- experimental design: hypotheses, baselines, paired comparisons, uncertainty, and evaluator bias
+- benchmark literacy: BFCL, τ-bench, GAIA, SWE-bench, IFEval, versions, and limitations
+- outcome, trajectory, and environment-state evaluation
 - CI-based regression evals
 
 ### Project
@@ -141,7 +145,7 @@ Create a benchmark for StrongBench Expense Agent v1 with at least 100 tasks, mul
 
 ### Exit Criteria
 
-The learner can compare two agent versions, choose an automation threshold on development data, and explain why they trust both the policy and its verifiers.
+The learner can design a paired comparison of two agent versions, report uncertainty and slice-level limitations, evaluate outcomes, actions and state where available, choose an automation threshold on development data, and explain why they trust both the policy and its verifiers.
 
 ## Level 3: Production Eval Operations and Diagnose
 
@@ -171,6 +175,7 @@ Teach learners to operate the production quality loop around agents and explain 
 - verifier false accepts, false rejects, and rubric failures
 - intervention design
 - experiment tracking
+- release decisions under incomplete evidence, shadow testing, monitoring, incident investigation, and rollback
 
 ### Project
 
@@ -178,13 +183,13 @@ Create a production-style eval operations report and Agent Failure Report for th
 
 ### Exit Criteria
 
-The learner can turn traces into eval cases, run regression checks, classify failures, identify dominant failure modes, propose interventions, and test whether those interventions work.
+The learner can connect observation, evidence, hypothesis, intervention, experiment, and result; distinguish grader, model, and infrastructure failures; and defend a release recommendation with explicit uncertainty, monitoring, and rollback criteria.
 
-## Level 4: Data and Feedback
+## Level 4: Agent Improvement Systems
 
 ### Purpose
 
-Turn failures, traces, and human corrections into high-quality datasets.
+Select and test interventions using failure evidence, cost, latency, safety, and operational constraints; turn failures, traces, and human corrections into high-quality datasets when data is needed.
 
 ### Topics
 
@@ -204,14 +209,16 @@ Turn failures, traces, and human corrections into high-quality datasets.
 - quality scoring
 - dataset cards
 - dataset versioning
+- intervention selection across prompts, tools, context, workflows, routing, data, and models
+- improvement experiments, regression safeguards, cost/latency budgets, and release decisions
 
 ### Project
 
-Create Agent Training Dataset v1 from traces, failures, human examples, and synthetic examples.
+Create Agent Training Dataset v1 from traces, failures, human examples, and synthetic examples. Produce an improvement decision and test a targeted intervention against the baseline, with cost, latency, safety, and release criteria.
 
 ### Exit Criteria
 
-The learner can convert messy agent behavior into a defensible dataset with provenance, schema, quality metrics, and limitations.
+The learner can select and test a system intervention, explain tradeoffs and deployment evidence, and convert messy agent behavior into a defensible dataset with provenance, schema, quality metrics, and limitations.
 
 ## Level 5A: Model Improvement Decisions
 
@@ -231,6 +238,7 @@ Teach learners when any learned component is justified and when deterministic co
 - accuracy, calibration, coverage, latency, and cost tradeoffs
 - benchmark gates
 - deployment constraints
+- teacher-generated corrections, provenance, distillation, and experiment budgets
 
 ### Project
 
@@ -259,6 +267,8 @@ Teach qualified learners how to run a small post-training experiment and evaluat
 - DPO
 - reward models
 - model comparison
+- distillation and failure-derived training examples
+- bounded experimentation, checkpoints, and reproducibility
 
 ### Project
 
@@ -324,7 +334,10 @@ Teach learners to build simulated worlds and verifiers where agents can practice
 - verifier evaluation and versioning
 - rewards
 - reproducibility
-- sandboxing
+- reset contracts and sequential/concurrent episode isolation
+- sandbox and network boundaries, with enforcement evidence
+- adversarial verifier testing and difficulty calibration across policies
+- domain transfer across finance and code repair
 
 ### Project
 
@@ -332,7 +345,7 @@ Build the first version of StrongBench Finance Operations Simulator, starting fr
 
 ### Exit Criteria
 
-The learner can create a reproducible environment with tasks, state transitions, automatic success checks, verifier outputs, and reward components.
+The learner can create a reproducible environment with tasks, state transitions, automatic success checks, verifier outputs, and reward components; test reset and episode isolation; and distinguish tested sandbox boundaries from simulator assumptions.
 
 ## Level 7: RL Literacy for Agent Engineers
 
@@ -360,10 +373,13 @@ Teach learners how agents can improve through experience, how verifier-derived r
 - process vs outcome rewards
 - online vs offline RL
 - rollout analysis
+- training workers, checkpointing, experiment tracking, and resource budgets
+- reward validity against independent held-out and adversarial evaluations
+- bounded autonomous experimentation as an optional extension
 
 ### Project
 
-Analyze rollouts, rewards, and a proposed training setup for the StrongBench Finance Operations Simulator. Running RL training is optional until the repo has a real environment implementation, verifier contracts, compute requirements, and reference training scripts.
+Analyze rollouts, rewards, and a proposed training setup for the StrongBench Finance Operations Simulator. Running RL training is optional. The local simulator and verifier contracts exist; a validated end-to-end RL training environment and reference run are pending.
 
 ### Exit Criteria
 
@@ -394,7 +410,7 @@ The course has two capstones.
 
 Required for core completion. No GPU required.
 
-Learners improve a flawed StrongBench Expense Agent, run evals, diagnose failures, make one targeted intervention, and write a recommendation.
+Learners improve a flawed StrongBench Expense Agent, run paired evals, diagnose failures, make one targeted intervention, and write a release recommendation under stated constraints.
 
 See [../capstones/core-practical/README.md](../capstones/core-practical/README.md).
 

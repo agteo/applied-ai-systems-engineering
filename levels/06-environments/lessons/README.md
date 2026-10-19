@@ -9,4 +9,4 @@ Read these lessons in order:
 5. [Rewards and Success Checks](05-rewards-and-success-checks.md)
 6. [Reproducibility and Realism](06-reproducibility-and-realism.md)
 7. [Rollout Analysis](07-rollout-analysis.md)
-
+8. [Isolation and Verifier Validation](08-isolation-and-verifier-validation.md)

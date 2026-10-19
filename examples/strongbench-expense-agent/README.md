@@ -90,17 +90,11 @@ These are real, and several are deliberate teaching material rather than bugs to
 - [Level 1: Build](../../levels/01-build/README.md) — the spec this implements
 - [Level 2: Evaluate](../../levels/02-evaluate/README.md)
 - [Level 3: Diagnose](../../levels/03-diagnose/README.md)
-- [Level 4: Data and Feedback](../../levels/04-data/README.md)
+- [Level 4: Agent Improvement Systems](../../levels/04-data/README.md)
 - [Level 5: Post-training](../../levels/05-post-training/README.md)
 - [Level 6: Environments](../../levels/06-environments/README.md)
 - [Level 7: Reinforcement Learning](../../levels/07-reinforcement-learning/README.md)
 
-| Level | Agent milestone | Status |
-| --- | --- | --- |
-| 1 | Basic tool-using expense assistant | shipped |
-| 2 | Evaluated agent with benchmark reports | next |
-| 3 | Diagnosed agent with failure taxonomy | spec only |
-| 4 | Data-producing agent with curated traces | spec only |
-| 5 | Agent backed by a fine-tuned or adapted model | spec only |
-| 6 | Agent operating inside StrongBench Corp Simulator | spec only |
-| 7 | Agent improved through experience and rewards | spec only |
+For current executable coverage and limitations across all levels, see
+[project status](../../STATUS.md). The reference expense agent is a starting
+point for the later evaluation, diagnosis, improvement and environment work.

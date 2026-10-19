@@ -19,6 +19,10 @@ By the end of this level, learners can:
 7. Capture traces that later levels can evaluate and diagnose.
 8. Choose between deterministic code, a specialised decision system, a
    generative model, and human review for each major computation.
+9. Explain context assembly, compaction and memory lifecycle, and test tool
+   permissions and execution boundaries independently of the model.
+10. Compare two model adapters under stable tools, state, trace, and output
+    contracts; describe routing and escalation tradeoffs.
 
 ## Required Build
 
@@ -72,6 +76,21 @@ The harness is the code that owns the loop:
 5. Execute tools.
 6. Add observations to context.
 7. Stop when the agent returns a final answer or hits a limit.
+
+### Harness Portability
+
+The model adapter proposes actions; the harness controls which actions can execute,
+validates inputs, manages context and state, and records traces. Context assembly,
+compaction, retrieval, reusable instructions and memory retention all affect what
+the model sees. Document their lifecycle and test permission enforcement outside
+the model. Routing can select an adapter or escalate to a stronger model or a
+human when evidence, cost, latency or risk warrants it.
+
+The reference uses a simulated approval tool and has no submit tool; its schema
+permission labels do not constitute a general permission enforcement engine.
+Compare two adapters with the same tool and output contracts. Their answers and
+action choices need not match; verify that the harness enforces the same boundaries.
+See [Lab 6](labs/lab-06-harness-portability.md).
 
 ### Tool Calling
 
@@ -173,6 +192,7 @@ every lesson. See
 | [Lab 3: Policy Search](labs/lab-03-policy-search.md) | Ground answers using a local policy corpus. | [`lab_03_policy_search.py`](../../examples/strongbench-expense-agent/solutions/lab_03_policy_search.py) |
 | [Lab 4: Trace Capture](labs/lab-04-trace-capture.md) | Save trajectories for later evaluation. | [`lab_04_trace_capture.py`](../../examples/strongbench-expense-agent/solutions/lab_04_trace_capture.py) |
 | [Lab 5: Intelligence Primitive Benchmark](labs/lab-05-intelligence-primitive-benchmark.md) | Measure rules, a classifier, a generative model, and a cascade on one routing decision. | [`lab_05_intelligence_primitive_benchmark.py`](../../examples/strongbench-expense-agent/solutions/lab_05_intelligence_primitive_benchmark.py) |
+| [Lab 6: Harness Portability](labs/lab-06-harness-portability.md) | Compare two adapters and test shared harness boundaries. | [Reference solution](../../examples/strongbench-expense-agent/solutions/lab_06_harness_portability.py) |
 
 Write your own version before reading a solution. [How to compare](../../examples/strongbench-expense-agent/solutions/README.md).
 
@@ -204,6 +224,8 @@ To complete Level 1, the learner must submit:
 4. Structured final answers.
 5. Trace logs for at least 20 manual tasks.
 6. A short implementation note explaining tradeoffs and known limitations.
+7. A two-adapter comparison and evidence that tool permissions, output and trace
+   contracts are enforced by the harness.
 
 Check your own trace bundle before submitting:
 

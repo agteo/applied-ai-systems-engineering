@@ -6,7 +6,9 @@ Use StrongBench Finance Operations Simulator to test whether environment experie
 
 Current maturity note: this is an analysis project. The repo includes a local RL
 literacy bundle and a Prime Intellect adapter you can load offline. No training
-run has been performed here, and a completed RL training claim still requires
+run has been performed here; the full training environment is pending. Learners
+may provide their own runtime or analyze an authorized external case study using
+the instructions below. A completed RL training claim still requires
 actual training logs, learning curves, sampled rollouts, and benchmark
 comparison.
 
@@ -32,6 +34,7 @@ comparison.
 - Prime RL small-experiment template: [`rl_reliability/strongbench/prime-rl-small-template.toml`](../../../rl_reliability/strongbench/prime-rl-small-template.toml)
 - Prime adapter, loadable offline: [`integrations/prime-intellect/environments/strongbench_finance_reliability/`](../../../integrations/prime-intellect/environments/strongbench_finance_reliability/)
 - what the hosted path does not validate: [`integrations/prime-intellect/VALIDATION.md`](../../../integrations/prime-intellect/VALIDATION.md)
+- bounded optional training plan: [`rl_reliability/strongbench/optional-training-run-plan.md`](../../../rl_reliability/strongbench/optional-training-run-plan.md)
 - learning curves if training is run
 - benchmark comparison if training is run
 - post-training failure analysis if training is run

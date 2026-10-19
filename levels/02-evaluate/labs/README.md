@@ -8,5 +8,7 @@
 | [Lab 4: Eval Report](lab-04-eval-report.md) | Turn benchmark results into a report someone can make a decision from, and make it regenerable. |
 | [Lab 5: Calibrated Verifier](lab-05-calibrated-verifier.md) | Measure probability quality and choose automation, escalation, and abstention thresholds without leaking the test set. |
 
+| [Lab 6: Paired and Process Evaluation](lab-06-paired-process-evaluation.md) | Design a paired experiment and check outcome, trajectory, and state. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.

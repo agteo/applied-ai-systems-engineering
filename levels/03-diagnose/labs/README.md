@@ -7,5 +7,7 @@
 | [Lab 3: Intervention Experiment](lab-03-intervention-experiment.md) | Test one targeted fix as an experiment that could return "no". |
 | [Lab 4: Failure Report](lab-04-failure-report.md) | Write the report that causes the next improvement cycle to happen. |
 
+| [Lab 5: Release Assurance](lab-05-release-assurance.md) | Make and defend a deployment decision under incomplete evidence. |
+
 Each lab links a reference artifact and states a check you can run or a
 rubric you can apply. Write your own version first, then compare.
